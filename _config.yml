@@ -1,8 +1,8 @@
 # Mandatory settings
 
-name: Chalk
+name: Thoughts
 paginate: 25
-url: # add your site url (format: https://example.com/)
+url: dtsbourg.github.io/thoughts
 blog_theme: light # Or use dark
 
 # Optional settings
