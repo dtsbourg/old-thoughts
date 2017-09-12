@@ -2,7 +2,17 @@
 // Fonts
 // =============================================================================
 
+// Icons
+// =============================================================================
+
 @charset "UTF-8";
+
+@font-face {
+  font-family: ionicons;
+  src: url(font_path("ionicons/ionicons.eot?#iefix")) format("embedded-opentype"),
+  url(font_path("ionicons/ionicons.woff")) format("woff"),
+  url(font_path("ionicons/ionicons.ttf"))  format("truetype");
+}
 
 // Cormorant Garamond
 // =============================================================================
