@@ -2,7 +2,7 @@
 
 name: dtsbourg / Thoughts
 paginate: 25
-url: dtsbourg.github.io/thoughts
+url: https://dtsbourg.github.io/thoughts
 blog_theme: light # Or use dark
 
 # Optional settings
