@@ -5,7 +5,7 @@
     {% assign thumb_image = page.thumb_image | asset_path | absolute_url %}
   {% endif %}
 {% else %}
-  {% assign thumb_image = 'og-image.jpg' | asset_path | absolute_url %}
+  {% assign thumb_image = 'favicon.ico' | asset_path | absolute_url %}
 {% endif %}
 <head>
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -26,7 +26,10 @@
   <meta name="twitter:description" content="{{ page.description }}">
   <meta name="twitter:image" content="{{ thumb_image }}">
 
-  <link rel="apple-touch-icon" href="{% asset_path apple-touch-icon.png %}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{% asset_path apple-touch-icon.png %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% asset_path favicon-32x32.png %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% asset_path favicon-16x16.png %}">
+  <link rel="mask-icon" href="{% asset_path safari-pinned-tab.svg %}" color="#5bbad5">
   <link href="{{ 'feed.xml' | absolute_url }}" type="application/rss+xml" rel="alternate" title="{{ site.name }} Last 10 blog posts" />
 
   {% if site.local_fonts %}

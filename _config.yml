@@ -37,7 +37,7 @@ assets:
     - _assets/stylesheets
     - _assets/yarn
     - _assets/stylesheets/modules/_icons.scss
-    - favicon.ico
+    - _assets/images/ico
 collections:
   my_tags:
     output: true

@@ -2,8 +2,7 @@
 layout: post
 title: "Starry Night"
 description: "A primer on style transfer"
-thumb_image: "documentation/sample-image.jpg"
-tags: [machine learning, intro]
+tags: [ML, intro]
 ---
 
 What makes *Starry Night* look like a van Gogh painting ? Is it the colours ?

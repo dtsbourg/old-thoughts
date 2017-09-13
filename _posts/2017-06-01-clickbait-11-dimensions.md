@@ -2,7 +2,6 @@
 layout: post
 title: "\"Scientists Discover That the Brain Can Process Clickbait in 11 Dimensions !\""
 description: "An example of approximative vulgarization."
-thumb_image: "documentation/sample-image.jpg"
 tags: [brain, neuroscience, epfl]
 ---
 
