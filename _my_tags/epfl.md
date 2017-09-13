@@ -1,0 +1,4 @@
+---
+slug: epfl
+name: EPFL
+---
