@@ -2,15 +2,16 @@
 
 name: dtsbourg / Thoughts
 paginate: 25
-url: 
+url: #
 blog_theme: light # Or use dark
 baseurl: /thoughts
+exclude: []
 
 # Optional settings
 
 about_enabled: false # Change to true if you wish to show an icon in the navigation that redirects to the about page
 discus_identifier: # Add your Disqus identifier
-ga_analytics:
+ga_analytics: #
 local_fonts: false # Change to true if you wish to use local fonts
 rss_enabled: true # Change to false if not
 scrollappear_enabled: true # Change to false to disable
