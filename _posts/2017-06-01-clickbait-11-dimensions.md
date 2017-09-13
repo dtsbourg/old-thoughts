@@ -39,7 +39,9 @@ It is crucial that people be interested in scientific advances, but it is just a
 **Disclaimer** *I'm not claiming to be an expert on the subject, just a student, and I only want to express my frustration when I see approximate renditions of cool scientific advancements. Nevertheless I'm happy to answer your questions about neuroscience to the best of my abilities or spark a discussion about how science is communicated to the public. Do you have examples of good (or bad) scientific communications ? Feel free to share them with me on [twitter](twitter.com/dtsbourg)*
 
 ---
-<br />
+
+### Sources
+
 * [1] [https://blog.keras.io/how-convolutional-neural-networks-see-the-world.html](https://blog.keras.io/how-convolutional-neural-networks-see-the-world.html)
 * [2] [http://journal.frontiersin.org/article/10.3389/fncom.2017.00048/full](http://journal.frontiersin.org/article/10.3389/fncom.2017.00048/full)
 * [3] [https://futurism.com/scientists-discover-that-our-brains-can-process-the-world-in-11-dimensions/](https://futurism.com/scientists-discover-that-our-brains-can-process-the-world-in-11-dimensions/)
