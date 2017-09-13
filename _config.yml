@@ -36,8 +36,8 @@ assets:
     - _assets/javascripts
     - _assets/stylesheets
     - _assets/yarn
-    - _assets/stylesheets/modules/_icons.scss
     - _assets/images/ico
+    - _assets/stylesheets/modules/_icons.scss
 collections:
   my_tags:
     output: true
