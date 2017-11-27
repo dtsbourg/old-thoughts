@@ -72,7 +72,7 @@ The main results of the Data Jam Days focus on the representation of voting
 in the Swiss parliament. They were projected into a 7 dimensional latent space
 and plotted by reducing down to 2 dimensions with [t-SNE](https://lvdmaaten.github.io/tsne/).
 
-![Global Vote Map](https://github.com/lazareGirardin/DataJamDays/blob/master/img/Global_Vote_map.png)
+![Global Vote Map](https://github.com/lazareGirardin/DataJamDays/blob/master/img/Global_Vote_map.png?raw=true)
 *Figure 1 : Clusters of voting instances*
 
 The voting patterns are overlayed with a party's voting behaviour. Convention
@@ -81,23 +81,23 @@ The party's line is chosen with a positive bias : if at least one of the members
 voted `Yes` it is considered the party line. This metric will be adapted in a more
 refined analysis.
 
-![Verts Votes](https://github.com/lazareGirardin/DataJamDays/blob/master/img/Verts_votes.png)
+![Verts Votes](https://github.com/lazareGirardin/DataJamDays/blob/master/img/Verts_votes.png?raw=true)
 *Figure 2 : Clusters of voting instances with voting behaviour (Green party)*
 
-![UDC Votes](https://github.com/lazareGirardin/DataJamDays/blob/master/img/UDC_votes.png)
+![UDC Votes](https://github.com/lazareGirardin/DataJamDays/blob/master/img/UDC_votes.png?raw=true)
 *Figure 3 : Clusters of voting instances with voting behaviour (UDC party)*
 
 We now highlight conflicting behaviours, colouring in red instances in which a pair of
 parties has voted oppositely (again, only one conflicting vote is sufficient to
 tag the vote as such) and in black instances in which parties have voted unanimously.
 
-![UDC vs Verts](https://github.com/lazareGirardin/DataJamDays/blob/master/img/UDC_vs_Verts_votes.png)
+![UDC vs Verts](https://github.com/lazareGirardin/DataJamDays/blob/master/img/UDC_vs_Verts_votes.png?raw=true)
 *Figure 4 : Clusters of voting instances highlighting conflicting voting patterns (Green vs UDC)*
 
 There are many conflicting cases between the Green party and the UDC party, as can be expected
 from dramatically different political lines.
 
-![PS vs Verts](https://github.com/lazareGirardin/DataJamDays/blob/master/img/PS_vs_Verts_votes.png)
+![PS vs Verts](https://github.com/lazareGirardin/DataJamDays/blob/master/img/PS_vs_Verts_votes.png?raw=true)
 *Figure 5 : Clusters of voting instances highlighting conflicting voting patterns (Green vs PS)*
 
 PS and Green party are much closer ideologically : they often vote the same thing.
