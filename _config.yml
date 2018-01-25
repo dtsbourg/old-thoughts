@@ -2,7 +2,7 @@
 
 name: dtsbourg / Thoughts
 paginate: 25
-url: #
+url: https://dtsbourg.github.io
 blog_theme: light # Or use dark
 baseurl: /thoughts
 exclude: []
@@ -38,6 +38,7 @@ assets:
     - _assets/yarn
     - _assets/stylesheets/modules/_icons.scss
     - _assets/images/ico
+    - _assets/images/pose-sketch
 collections:
   my_tags:
     output: true
