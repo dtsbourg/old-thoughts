@@ -65,14 +65,14 @@ This would allow for intuitive control of the robot’s many DOFs by
 providing direct, contextual and visible feedback to the user
 controlling it.
 
-To achieve this we started by investigating partial control of the
+<!-- To achieve this we started by investigating partial control of the
 robot’s joints in a Matlab simulation, developing an interactive
 simulation which allows for this type of control. This aspect will be
-detailed in Part 2 (*coming soon*).
+detailed in Part 2 (*coming soon*). -->
 
-An alternative approach to this control is to give and track commands directly
+An interesting approach to this control is to give and track commands directly
 in the image space (on the screen). This idea led to the investigation
-of the visual servoing problem, as detailed in Part 3 (*coming soon*).
+of the visual servoing problem, as detailed in Part 2 (*coming soon*).
 This led us to keep this method of control for a final application in
 which the user could click on the screen of an Android phone, and have
 the robot move to this selected point.

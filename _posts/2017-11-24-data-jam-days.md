@@ -2,7 +2,7 @@
 layout: post
 title: "Recommender Systems to extract voting patterns in the Swiss parliament"
 description: "Data Jam Days at EPFL (24-25 Nov. 2017)"
-tags: [Recommender, hackathon]
+tags: [recsys, hackathon, project]
 ---
 
 # Parlament
