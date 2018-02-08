@@ -77,7 +77,7 @@ We can now define a control law that will minimise the error in the pixel space 
 $$\begin{align} \frac{\partial{\mathbf{p}}}{\partial{\mathbf{q}}} &= \frac{\partial ({F_c \circ F}) }{\partial{\mathbf{q}}} \\ & = \frac{\partial F}{\partial \mathbf{q}} \cdot \frac{\partial F_c}{\partial \mathbf{q}} \Bigg\rvert_{F(\mathbf{q})} \\ & = \mathbf{J} \cdot \mathbf{J}_c \big\rvert_{F(\mathbf{q})} \end{align}$$
 
 where $$\mathbf{J}$$ is the Jacobian of $$F$$, mapping velocities from the joint-angles to the end-effector, and $$\mathbf{J_c}$$ is the Jacobian of $$F_c$$, mapping velocities from the end-effector to the pixel space.
-The final control law is obtained by computing the pseudo-inverse of this relation to finally get:
+The final control law is obtained by computing the pseudo-inverse ($$^+$$) of this relation to finally get, for a simple PD controller (the gain $$k_p$$ controls how aggressively we want to reach the solution):
 
 $$\dot{\mathbf{q}} = (\mathbf{J} \cdot \mathbf{J}_c \big\rvert_{F(\mathbf{q})} )^{+} \cdot k_p (\mathbf{p} - \hat{\mathbf{p}})$$
 
