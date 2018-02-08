@@ -94,7 +94,7 @@ As we have seen the intrinsic matrix is entirely defined by camera parameters. I
 
 We also have to learn the extrinsic matrix so we can figure out where the camera and robot are relative to each other. For this we used the simplest method available: since the phone's pose as given by Tango was relative to the start-up position, we simply start-up the app at a position that is known from the robot, such as its end-effector. We can see this step in [TODO]
 
-![Interaction Model]({% asset_path calib.png %})
+![Interaction Model]({% asset_path calib.jpg %})
 *Figure 5: Calibration step*
 
 ### Visual interaction
