@@ -38,27 +38,29 @@ Since our objective is to have a map between any pixel on our interface and poin
 
 This ray-tracing method is the simplest way to get a mapping from point to pixel and is quite useful for experimentation in a simple setting. Unfortunately it is unusable in a real setting, simply because this is not at all how lenses work, with the error of this model growing quadratically with the distance to the interface. It assumes there is a 1-1 mapping in scale between the screen and the objects (no distortion, no magnification), where using a lens allows us to view large scenes on a small screen. To circumvent this we can use a pinhole camera model that projects straight lines from a focal point behind the interface, but this also assumes the absence of distortion. We could also apply some form of linearisation which approximates this simple camera model but provides an easer geometrical framework (piece-wise linear) by stacking arbitrarily thin chunks of rays.
 
-Thankfully, optics provides us with a simple way to get over these issues by defining a projective matrix for the optical system of the camera. All we need to know are some basic lens characteristics:  $f_x$ and $f_y$ are the respective focal lengths on axis x and y of the lens, $s$ is the axis skew (which causes distortion in the image), $x_0$ and $y_0$ are the displacements of the studied point (in our case, where the user clicked on the screen). Note that these parameters are expressed in pixel units, meaning the distances are not taken into account. To model this dependency we can use a scaled version, dividing the values by the factor of the sensor sizes in pixels and mm.
-
-$$\mathbf{K} = \begin{bmatrix} f_x & s   & x_0 \\ 0   & f_y & y_0 \\ 0   & 0   & 1 \end{bmatrix}$$
-
 ![Interaction Model]({% asset_path pinholeCamera.png %})
 *Figure 3: Pinhole camera model*
 
-However, this method is incomplete. We only get the matrix $K$ which models the lens, and not the camera. For this we simply incorporate an extrinsic matrix (as opposed to the intrinsic matrix $\mathbf{K}$), modelling the pose of the camera in the world space, in generalised coordinates, comprised of a rotation $\mathbf{R}$ and a translation $\mathbf{t}$.
+Thankfully, optics provides us with a simple way to get over these issues by defining a projective matrix for the optical system of the camera. All we need to know are some basic lens characteristics: $$f_x$$ and $$f_y$$ are the respective focal lengths on axis x and y of the lens, $$s$$ is the axis skew (which causes distortion in the image), $$x_0$$ and $$y_0$$ are the displacements of the studied point (in our case, where the user clicked on the screen). Note that these parameters are expressed in pixel units, meaning the distances are not taken into account. To model this dependency we can use a scaled version, dividing the values by the factor of the sensor sizes in pixels and mm.
+
+$$\mathbf{K} = \begin{bmatrix} f_x & s   & x_0 \\ 0   & f_y & y_0 \\ 0   & 0   & 1 \end{bmatrix}$$
+
+
+However, this method is incomplete. We only get the matrix $$K$$ which models the lens, and not the camera. For this we simply incorporate an extrinsic matrix (as opposed to the intrinsic matrix $$\mathbf{K}$$), modelling the pose of the camera in the world space, in generalised coordinates, comprised of a rotation $$\mathbf{R}$$ and a translation $$t$$.
 
 $$\mathbf{P} = \mathbf{K} \cdot \begin{bmatrix} \mathbf{R} | t \end{bmatrix} \,\,\,\,,$$
 
 Some methods have been proposed to learn such a mapping, such as deriving it online as in [^2], or by calibrating the system with a point known by both the robot and the camera (getting an intermediate referential). In practice, this is the simplest way to find it. In our experiments we calibrated with the robot's end effector as a known position, but previous attempts have defined arbitrary intermediate referentials for calibration.
 
+
 ## Controlling the robot from the pixel space
 
-So once we have learnt these maps, we can finally use them to do something useful (well, at least fun): moving robots around ! Let's define a simple robot as in [TODO]. The arm of the robot is defined by two joint angles ($$\mathbf{q} = [q_1\, \,q_2]^T$$), and the end-effector’s position in the robot space is denoted $\mathbf{x_R}$.
+So once we have learnt these maps, we can finally use them to do something useful (well, at least fun): moving robots around ! Let's define a simple robot as in Fig. 4. The arm of the robot is defined by two joint angles ($$\mathbf{q} = [q_1\, \,q_2]^T$$), and the end-effector’s position in the robot space is denoted $$\mathbf{x_R}$$.
 
 ![Interaction Model]({% asset_path pix_control.png %})
 *Figure 4: Controlling in the pixel space*
 
-Following our previous argument, we learn a mapping $F_c$ which brings a point $\mathbf{x}$ in world space to a point $\mathbf{p}$ in the pixel space (on the screen). We could use the simple method of ray-tracing but as detailed earlier this method has severe shortcomings.
+Following our previous argument, we learn a mapping $$F_c$$ which brings a point $$\mathbf{x}$$ in world space to a point $$\mathbf{p}$$ in the pixel space (on the screen). We could use the simple method of ray-tracing but as detailed earlier this method has severe shortcomings.
 
 $$F_c(\mathbf{x_R}) = \mathbf{p}$$
 
@@ -70,11 +72,11 @@ Well the rest is now straighforward: we have two mappings: one to go from the jo
 
 $$\mathbf{p} = F_c(F(\mathbf{q}))$$
 
-We can now define a control law that will minimise the error in the pixel space between the desired position $\hat{\mathbf{p}}$ and the current position $\mathbf{p}$ by controlling the joint angles $\mathbf{q}$. This can be obtained by applying the chain rule to the previous mapping, to obtain:
+We can now define a control law that will minimise the error in the pixel space between the desired position $$\hat{\mathbf{p}}$$ and the current position $$\mathbf{p}$$ by controlling the joint angles $$\mathbf{q}$$. This can be obtained by applying the chain rule to the previous mapping, to obtain:
 
 $$\begin{align} \frac{\partial{\mathbf{p}}}{\partial{\mathbf{q}}} &= \frac{\partial ({F_c \circ F}) }{\partial{\mathbf{q}}} \\ & = \frac{\partial F}{\partial \mathbf{q}} \cdot \frac{\partial F_c}{\partial \mathbf{q}} \Bigg\rvert_{F(\mathbf{q})} \\ & = \mathbf{J} \cdot \mathbf{J}_c \big\rvert_{F(\mathbf{q})} \end{align}$$
 
-where $\mathbf{J}$ is the Jacobian of $F$, mapping velocities from the joint-angles to the end-effector, and $\mathbf{J_c}$ is the Jacobian of $F_c$, mapping velocities from the end-effector to the pixel space.
+where $$\mathbf{J}$$ is the Jacobian of $$F$$, mapping velocities from the joint-angles to the end-effector, and $$\mathbf{J_c}$$ is the Jacobian of $$F_c$$, mapping velocities from the end-effector to the pixel space.
 The final control law is obtained by computing the pseudo-inverse of this relation to finally get:
 
 $$\dot{\mathbf{q}} = (\mathbf{J} \cdot \mathbf{J}_c \big\rvert_{F(\mathbf{q})} )^{+} \cdot k_p (\mathbf{p} - \hat{\mathbf{p}})$$
@@ -88,11 +90,11 @@ We now have everything at our disposal to use this in the real world. We impleme
 
 ### Intrinsic matrix and Camera parameters
 
-As we have seen the intrinsic matrix is entirely defined by camera parameters. In our case we were able to retrieve them from Tango, letting us plugin the desired values to the matrix $\mathbf{K}$.
+As we have seen the intrinsic matrix is entirely defined by camera parameters. In our case we were able to retrieve them from Tango, letting us plugin the desired values to the matrix $$\mathbf{K}$$.
 
 ### Extrinsic matrix and Calibration
 
-We also have to learn the extrinsic matrix so we can figure out where the camera and robot are relative to each other. For this we used the simplest method available: since the phone's pose as given by Tango was relative to the start-up position, we simply start-up the app at a position that is known from the robot, such as its end-effector. We can see this step in [TODO]
+We also have to learn the extrinsic matrix so we can figure out where the camera and robot are relative to each other. For this we used the simplest method available: since the phone's pose as given by Tango was relative to the start-up position, we simply start-up the app at a position that is known from the robot, such as its end-effector. We can see this step in Fig. 5.
 
 ![Interaction Model]({% asset_path calib.jpg %})
 *Figure 5: Calibration step*
@@ -101,7 +103,7 @@ We also have to learn the extrinsic matrix so we can figure out where the camera
 
 We can now click on the interface to give the robot commands. The pipeline we described __computes a direct mapping from the clicked position to joint angles__. As mentioned there can be several solutions to the inverse map, so it is sometimes necessary to define several points, with there solutions being averaged out to give the final command for the end-effector.
 
-![Interaction Model]({% asset_path control.png %})
+![Interaction Model]({% asset_path control.jpg %})
 *Figure 6: Controlling in the pixel space*
 
 
