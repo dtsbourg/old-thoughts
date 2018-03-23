@@ -1,12 +1,10 @@
 ---
 layout: post
-title: "Self-Normalizing Neural Networks (SELU)"
-description: "Paper notes"
+title: "[NOTES] Self-Normalizing Neural Networks (SELU)"
+description: "by G. Klambauer, T. Unterthiner, A. Mayr, and S. Hochreiter"
 tags: [ML, Deep learning, notes]
 ---
 
-## *Self-Normalizing Neural Networks*,
-### by G. Klambauer, T. Unterthiner, A. Mayr, and S. Hochreiter[^1]
 [arXiv](https://arxiv.org/abs/1706.02515)
 
 ## What?
@@ -41,13 +39,13 @@ Derive a mapping between layers that satisfies these requirements. Interestingly
 the properties are verified through a computer-aided proof. The starting point
 is mix between Exponential Linear Units (ELUs) and Leaky ReLUs.
 
-$$selu(x) = \lambda  \begin{cases} x \text{ if } x \gt 0 \\ \alpha e^{x} - \alpha \end{cases}$$
+$$selu(x) = \lambda  \begin{cases} x & \text{ if } x \gt 0 \\ \alpha e^{x} - \alpha & \text{ if } x \le 0 \end{cases}$$
 
 Parameters are obtained by finding a fixed point of the mapping function that
 satisfies the normalization requirements. They propose:
 
-* $$\alpha = 1.6732632423543772848170429916717$$
-* $$\lambda = 1.0507009873554804934193349852946$$
+$$\alpha = 1.6732632423543772848170429916717$$
+$$\lambda = 1.0507009873554804934193349852946$$
 
 They also derive a parametrised dropout which does not suffer from the same issues
 as regular dropout as it is designed to preserve zero-mean and unit-variance in
