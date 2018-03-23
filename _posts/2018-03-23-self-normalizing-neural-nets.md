@@ -69,6 +69,7 @@ Compare against many baselines: Batch Norm, Layer Norm, Weight Norm, Highway, Re
 
 * Interesting use of a computer generated proof
 * Very smooth accuracy even for very deep networks (see Fig. 2)
+* Sepp Hochreiter [^1]
 
 ## Resources
 #### Code
