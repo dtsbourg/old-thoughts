@@ -54,6 +54,9 @@ the layer's activations.
 ![SELU]({% asset_path selu.png %})
 *Figure 1: SELU activation function*
 
+*Theorem 2*: No exploding gradients (bounds)
+*Theorem 3*: No vanishing gradients
+
 ## Evaluation
 
 * 121 Tasks from [UCI dataset](https://archive.ics.uci.edu/ml/datasets.html)
@@ -67,9 +70,17 @@ Compare against many baselines: Batch Norm, Layer Norm, Weight Norm, Highway, Re
 
 ## Comments
 
-* Interesting use of a computer generated proof
+* Interesting use of a computer generated proof to give bounds on the variance
+when weights don't satisfy the zero-mean, unit-variance property
 * Very smooth accuracy even for very deep networks (see Fig. 2)
 * Sepp Hochreiter [^1]
+* Makes batchnorm obsolete, which means big training speedup
+
+## Questions
+
+* Evaluated with SGD. How does it behave with e.g. Adam?
+* Evaluated with small learning rates, can we be more agressive in learning?
+* Comparison between Spectral Normalization [^4] and SNN for mode collapse in GANs.
 
 ## Resources
 #### Code
@@ -82,9 +93,11 @@ Compare against many baselines: Batch Norm, Layer Norm, Weight Norm, Highway, Re
 
 * [/r/MachineLearning](https://www.reddit.com/r/MachineLearning/comments/6g5tg1/r_selfnormalizing_neural_networks_improved_elu/)
 * [hackernews](https://news.ycombinator.com/item?id=14527686)
+* [Shortscience](http://www.shortscience.org/paper?bibtexKey=journals/corr/1706.02515)
 
 ## References
 
 [^1]: [*Long Short-Term Memory*. Sepp Hochreiter and Jürgen Schmidhuber.  Neural Comput. 9, 8 (November 1997), 1735-1780](https://dl.acm.org/citation.cfm?id=1246450)
 [^2]: [*Dropout: A Simple Way to Prevent Neural Networks from Overfitting*, Nitish Srivastava, Geoffrey Hinton, Alex Krizhevsky, Ilya Sutskever, Ruslan Salakhutdinov; 15(Jun):1929−1958, 2014.](http://jmlr.org/papers/v15/srivastava14a.html)
 [^3]: [*Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift*, Sergey Ioffe, Christian Szegedy](https://arxiv.org/abs/1502.03167)
+[^4]: [*Spectral Normalization for Generative Adversarial Networks*, Takeru Miyato, Toshiki Kataoka, Masanori Koyama, Yuichi Yoshida](https://openreview.net/forum?id=B1QRgziT-)
