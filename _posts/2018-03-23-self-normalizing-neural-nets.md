@@ -54,8 +54,6 @@ the layer's activations.
 ![SELU]({% asset_path selu.png %})
 *Figure 1: SELU activation function*
 
-*Theorem 2*: No exploding gradients (bounds)
-*Theorem 3*: No vanishing gradients
 
 ## Evaluation
 
