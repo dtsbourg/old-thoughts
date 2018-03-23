@@ -5,16 +5,16 @@ description: "Paper notes"
 tags: [ML, Deep learning, notes]
 ---
 
-## *Self-Normalizing Neural Networks*, by G. Klambauer, T. Unterthiner, A. Mayr, and S. Hochreiter[^1]
-
+## *Self-Normalizing Neural Networks*,
+### by G. Klambauer, T. Unterthiner, A. Mayr, and S. Hochreiter[^1]
 [arXiv](https://arxiv.org/abs/1706.02515)
 
-# What?
+## What?
 
 Proposes a new activation function allowing the robust training of very
 deep vanilla neural networks.
 
-# Why?
+## Why?
 
 Most of the successes of Deep Learning have come either from Recurrent (RNN)
 or Convolutional (CNN) forms: they are stable through weight-sharing.
@@ -28,7 +28,7 @@ stochastic regularisation methods (e.g. dropout [^2]).
 
 Normalizing activations avoids a bias in the inputs of the following layer.
 
-# How?
+## How?
 
 An activation function is designed along the following requirements:
 
@@ -56,7 +56,7 @@ the layer's activations.
 ![SELU]({% asset_path selu.png %})
 *Figure 1: SELU activation function*
 
-# Evaluation
+## Evaluation
 
 * 121 Tasks from [UCI dataset](https://archive.ics.uci.edu/ml/datasets.html)
 * Drug discovery task
@@ -67,24 +67,24 @@ the layer's activations.
 
 Compare against many baselines: Batch Norm, Layer Norm, Weight Norm, Highway, ResNet.
 
-# Comments
+## Comments
 
 * Interesting use of a computer generated proof
 * Very smooth accuracy even for very deep networks (see Fig. 2)
 
-# Resources
-## Code
+## Resources
+#### Code
 
 * [Tensorflow Implementation](https://github.com/bioinf-jku/SNNs)
 * [PyTorch Implementation](https://github.com/dannysdeng/selu)
 * [Notebook](https://gist.github.com/Drakensberge/2d8a4e8f9ff48e095e12a892b08598ec#file-distribution-ipynb)
 
-## Discussion
+#### Discussion
 
 * [/r/MachineLearning](https://www.reddit.com/r/MachineLearning/comments/6g5tg1/r_selfnormalizing_neural_networks_improved_elu/)
 * [hackernews](https://news.ycombinator.com/item?id=14527686)
 
-# References
+## References
 
 [^1]: [*Long Short-Term Memory*. Sepp Hochreiter and Jürgen Schmidhuber.  Neural Comput. 9, 8 (November 1997), 1735-1780](https://dl.acm.org/citation.cfm?id=1246450)
 [^2]: [*Dropout: A Simple Way to Prevent Neural Networks from Overfitting*, Nitish Srivastava, Geoffrey Hinton, Alex Krizhevsky, Ilya Sutskever, Ruslan Salakhutdinov; 15(Jun):1929−1958, 2014.](http://jmlr.org/papers/v15/srivastava14a.html)

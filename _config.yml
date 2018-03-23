@@ -39,6 +39,7 @@ assets:
     - _assets/stylesheets/modules/_icons.scss
     - _assets/images/ico
     - _assets/images/pose-sketch
+    - _assets/images/selu
 collections:
   my_tags:
     output: true
