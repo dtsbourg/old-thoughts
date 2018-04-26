@@ -40,6 +40,7 @@ assets:
     - _assets/images/ico
     - _assets/images/pose-sketch
     - _assets/images/selu
+    - _assets/images/selbias
 collections:
   my_tags:
     output: true

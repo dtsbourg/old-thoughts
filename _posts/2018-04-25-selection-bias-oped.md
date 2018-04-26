@@ -5,11 +5,6 @@ description: "Machine learning personalisation methods have the ability to bias 
 tags: [news, paper, webconf, bias]
 ---
 
-# How editorial decisions can reveal a worrying lack of diversity in news coverage
-
-#### Machine learning personalisation methods have the ability to bias the content of a news feed, and reinforce filter bubbles. Can they also be used to do the opposite?
-
-
 It’s 6PM in Syracuse: the traditional ballet of good and bad news can begin. A local teller got robbed, international tensions reach new highs. A lucky lottery winner took home an obscene amount of money, while the EU was enacting new data protection laws.
 
 Like most people, we respond strongly to relatable issues, even more so when delivered by familiar and trusted voices. In this sense, local news really is the bedrock of most people's information stream, despite the rise of social media. As you walk into a friend or family's home, chances are the television will be on. A familiar face on screen, and in the corner a familiar logo, staples of American TV journalism over the last half-century: ABC, CNN, Fox News, CBS, MSNBC ...
@@ -74,15 +69,15 @@ The more information is produced, the more it has to be curated so as to not ind
 
 ## Bibliography
 
-[1] Selection Bias in News Coverage: Learning it, Fighting it, WWW’18, D. Bourgeois, J. Rappaz, K. Aberer [link](https://selection-bias-www2018.github.io/)
-[2] Sinclair memo transcript [link](https://www.mediamatters.org/blog/2018/03/29/here-are-manipulative-ads-sinclair-forced-local-anchors-read-now-airing-across-country/219779)
-[3] “We’re journalists at a Sinclair news station. We’re pissed.”, Anonymous (published on Vox) [link](https://www.vox.com/first-person/2018/4/5/17202336/sinclair-broadcasting-promo-deadspin)
-[4] List of Sinclair operated stations, by affiliation [link](https://en.wikipedia.org/wiki/List_of_stations_owned_or_operated_by_Sinclair_Broadcast_Group)
-[5] Sinclair Broadcast Group: Last Week Tonight with John Oliver (HBO) [video](https://www.youtube.com/watch?v=GvtNyOzGogc)
-[6] Trump tweet [link](https://twitter.com/realDonaldTrump/status/981117684489379840)
-[7] Acquisition of Tribune Media [link](https://en.wikipedia.org/wiki/Proposed_acquisition_of_Tribune_Media_by_Sinclair_Broadcast_Group)
-[8] Trump FCC [link](https://www.brookings.edu/blog/techtank/2017/07/11/trump-fcc-deregulation-threatens-local-broadcasting/)
-[9] Anti-Kerry Broadcast [link](http://money.cnn.com/2004/10/18/news/midcaps/sinclair_kerry/)
-[10] Anti-Kerry 2 [link](http://articles.baltimoresun.com/2004-10-12/news/0410120139_1_vietnam-war-stolen-honor-democratic-party/2)
-[11] Sinclair conservative slant [link](https://www.washingtonpost.com/lifestyle/style/under-new-ownership-wjla-tv-takes-a-slight-turn-to-the-right/2014/09/16/a21ffa6e-3ac8-11e4-9c9f-ebb47272e40e_story.html?noredirect=on&utm_term=.14b9dbfdac73)
-[12] Sinclair conservative slant 2 [link](https://www.nytimes.com/2017/05/03/business/dealbook/sinclair-media-expansion-fox-conservative-media.html?_r=0)
+* [1] Selection Bias in News Coverage: Learning it, Fighting it, WWW’18, D. Bourgeois, J. Rappaz, K. Aberer [link](https://selection-bias-www2018.github.io/)
+* [2] Sinclair memo transcript [link](https://www.mediamatters.org/blog/2018/03/29/here-are-manipulative-ads-sinclair-forced-local-anchors-read-now-airing-across-country/219779)
+* [3] “We’re journalists at a Sinclair news station. We’re pissed.”, Anonymous (published on Vox) [link](https://www.vox.com/first-person/2018/4/5/17202336/sinclair-broadcasting-promo-deadspin)
+* [4] List of Sinclair operated stations, by affiliation [link](https://en.wikipedia.org/wiki/List_of_stations_owned_or_operated_by_Sinclair_Broadcast_Group)
+* [5] Sinclair Broadcast Group: Last Week Tonight with John Oliver (HBO) [video](https://www.youtube.com/watch?v=GvtNyOzGogc)
+* [6] Trump tweet [link](https://twitter.com/realDonaldTrump/status/981117684489379840)
+* [7] Acquisition of Tribune Media [link](https://en.wikipedia.org/wiki/Proposed_acquisition_of_Tribune_Media_by_Sinclair_Broadcast_Group)
+* [8] Trump FCC [link](https://www.brookings.edu/blog/techtank/2017/07/11/trump-fcc-deregulation-threatens-local-broadcasting/)
+* [9] Anti-Kerry Broadcast [link](http://money.cnn.com/2004/10/18/news/midcaps/sinclair_kerry/)
+* [10] Anti-Kerry 2 [link](http://articles.baltimoresun.com/2004-10-12/news/0410120139_1_vietnam-war-stolen-honor-democratic-party/2)
+* [11] Sinclair conservative slant [link](https://www.washingtonpost.com/lifestyle/style/under-new-ownership-wjla-tv-takes-a-slight-turn-to-the-right/2014/09/16/a21ffa6e-3ac8-11e4-9c9f-ebb47272e40e_story.html?noredirect=on&utm_term=.14b9dbfdac73)
+* [12] Sinclair conservative slant 2 [link](https://www.nytimes.com/2017/05/03/business/dealbook/sinclair-media-expansion-fox-conservative-media.html?_r=0)
