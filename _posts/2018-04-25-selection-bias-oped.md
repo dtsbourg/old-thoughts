@@ -56,7 +56,7 @@ Interestingly though, a second type of cluster emerged. The first time we starte
 
 Our method did what it was intended to do: we identify and bring together sources with similar decision processes. The clusters we identify are non-obvious, especially without access to the content, and most don't even have the same branding since they are often franchised outlets.
 
-![Footer]({% asset_path footer.png %})
+![Footer]({% asset_path broadcast.png %})
 *Figure 3: Broadcast syndication clusters in the selection space*
 
 While certainly not exhaustive, our method was able to detect and group local stations that were all part of larger structures, such as Sinclair Broadcasting Group, which controlled swaths of news outlets across the country.
