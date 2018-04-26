@@ -36,7 +36,7 @@ When broadcast syndications were first envisioned, they answered a very real nee
 
 Given the fractal scale at which the world's events occur, editors must make decisions with respect to the type of information they will send downstream. Informed by geographic considerations, editorial guidelines, thematic regards or even logistic capabilities, this filtering process is very likely to introduce an imbalance in the stories that editors choose to promote. Some events will end up over- or under-represented, which introduces a selection bias. When larger organizations, such as Sinclair, push information downstream to their affiliates, the decision process becomes even more visible thanks to the scale at which it skews the event space.
 
-An interesting way to uncover these biases is to look at the interaction between sources and events: who covered what? Without any regard for the content of what was covered, the interactions alone are useful to extract some idea of source's preferences. Studying this information is actually a common setting in a field of machine learning called collaborative filtering. For example, without even knowing what your favorite genre or who your favorite actor is, it’s likely that you will want to watch a movie that people who like similar movies to yourself also liked. The same idea can apply to news coverage: a given source’s coverage could be inferred from sources similar to itself.
+An interesting way to uncover these biases is to look at the interaction between sources and events: who covered what? Without any regard for the content of what was covered, the interactions alone are useful to extract some idea of source's preferences. Studying this information is actually a common setting in a field of machine learning called collaborative filtering. For example, without even knowing what your preferred genre or who your favorite actor is, it’s likely that you will want to watch a movie that people who like similar movies to yourself also liked. The same idea can apply to news coverage: a given source’s coverage could be inferred from sources similar to itself.
 
 These methods have recently come under fire, with people accusing companies like Facebook of leveraging personalisation techniques to bias people’s decision making process. However, by realising that a decision process is a preference process, the same technology can be leveraged to de-bias news channels. This is what is proposed in our paper, [“Selection Bias in News Coverage: Learning it, Fighting it” (WWW’18)](https://selection-bias-www2018.github.io/).
 
@@ -69,15 +69,15 @@ The more information is produced, the more it has to be curated so as to not ind
 
 ## Bibliography
 
-* [1] Selection Bias in News Coverage: Learning it, Fighting it, WWW’18, D. Bourgeois, J. Rappaz, K. Aberer [link](https://selection-bias-www2018.github.io/)
-* [2] Sinclair memo transcript [link](https://www.mediamatters.org/blog/2018/03/29/here-are-manipulative-ads-sinclair-forced-local-anchors-read-now-airing-across-country/219779)
-* [3] “We’re journalists at a Sinclair news station. We’re pissed.”, Anonymous (published on Vox) [link](https://www.vox.com/first-person/2018/4/5/17202336/sinclair-broadcasting-promo-deadspin)
-* [4] List of Sinclair operated stations, by affiliation [link](https://en.wikipedia.org/wiki/List_of_stations_owned_or_operated_by_Sinclair_Broadcast_Group)
-* [5] Sinclair Broadcast Group: Last Week Tonight with John Oliver (HBO) [video](https://www.youtube.com/watch?v=GvtNyOzGogc)
-* [6] Trump tweet [link](https://twitter.com/realDonaldTrump/status/981117684489379840)
-* [7] Acquisition of Tribune Media [link](https://en.wikipedia.org/wiki/Proposed_acquisition_of_Tribune_Media_by_Sinclair_Broadcast_Group)
-* [8] Trump FCC [link](https://www.brookings.edu/blog/techtank/2017/07/11/trump-fcc-deregulation-threatens-local-broadcasting/)
-* [9] Anti-Kerry Broadcast [link](http://money.cnn.com/2004/10/18/news/midcaps/sinclair_kerry/)
-* [10] Anti-Kerry 2 [link](http://articles.baltimoresun.com/2004-10-12/news/0410120139_1_vietnam-war-stolen-honor-democratic-party/2)
-* [11] Sinclair conservative slant [link](https://www.washingtonpost.com/lifestyle/style/under-new-ownership-wjla-tv-takes-a-slight-turn-to-the-right/2014/09/16/a21ffa6e-3ac8-11e4-9c9f-ebb47272e40e_story.html?noredirect=on&utm_term=.14b9dbfdac73)
-* [12] Sinclair conservative slant 2 [link](https://www.nytimes.com/2017/05/03/business/dealbook/sinclair-media-expansion-fox-conservative-media.html?_r=0)
+* Selection Bias in News Coverage: Learning it, Fighting it, WWW’18, D. Bourgeois, J. Rappaz, K. Aberer [link](https://selection-bias-www2018.github.io/)
+* Sinclair memo transcript [link](https://www.mediamatters.org/blog/2018/03/29/here-are-manipulative-ads-sinclair-forced-local-anchors-read-now-airing-across-country/219779)
+* “We’re journalists at a Sinclair news station. We’re pissed.”, Anonymous (published on Vox) [link](https://www.vox.com/first-person/2018/4/5/17202336/sinclair-broadcasting-promo-deadspin)
+* List of Sinclair operated stations, by affiliation [link](https://en.wikipedia.org/wiki/List_of_stations_owned_or_operated_by_Sinclair_Broadcast_Group)
+* Sinclair Broadcast Group: Last Week Tonight with John Oliver (HBO) [video](https://www.youtube.com/watch?v=GvtNyOzGogc)
+* Trump tweet [link](https://twitter.com/realDonaldTrump/status/981117684489379840)
+* Acquisition of Tribune Media [link](https://en.wikipedia.org/wiki/Proposed_acquisition_of_Tribune_Media_by_Sinclair_Broadcast_Group)
+* Trump FCC [link](https://www.brookings.edu/blog/techtank/2017/07/11/trump-fcc-deregulation-threatens-local-broadcasting/)
+* Anti-Kerry Broadcast [link](http://money.cnn.com/2004/10/18/news/midcaps/sinclair_kerry/)
+* Anti-Kerry 2 [link](http://articles.baltimoresun.com/2004-10-12/news/0410120139_1_vietnam-war-stolen-honor-democratic-party/2)
+* Sinclair conservative slant [link](https://www.washingtonpost.com/lifestyle/style/under-new-ownership-wjla-tv-takes-a-slight-turn-to-the-right/2014/09/16/a21ffa6e-3ac8-11e4-9c9f-ebb47272e40e_story.html?noredirect=on&utm_term=.14b9dbfdac73)
+* Sinclair conservative slant 2 [link](https://www.nytimes.com/2017/05/03/business/dealbook/sinclair-media-expansion-fox-conservative-media.html?_r=0)
