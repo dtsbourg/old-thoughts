@@ -25,7 +25,8 @@ Why would all these local stations, apparently across affiliations, decide to co
 
 
 > “We hated the way the PSA bashed other news outlets and the way it insinuated that we were the only truthful news source — despite the rightward tilt our network has taken over the years.  Our anchors privately said they felt like corporate mouthpieces, especially when they found out no edits of the script were permitted.  Yet bosses made it clear that reading the message wasn’t a suggestion but an order from above.”
-*Extract from the op-ed published in Vox by Sinclair Journalists [^3]*
+
+*Extract from an op-ed published in Vox by Sinclair Journalists [^3]*
 
 Many of these stations are not actually operated by their namesakes: they essentially act as franchises.  The largest local news operator in the country is called Sinclair Broadcasting Group, which owns close to 200 local stations in the United States.  This number could even be extended if the [$3.9 billion merger with Tribune Media](https://en.wikipedia.org/wiki/Proposed_acquisition_of_Tribune_Media_by_Sinclair_Broadcast_Group) [^7] comes through.  It is currently under review by the FCC, under the suspicion that it would effectively create a monopoly.  While antitrust laws and broadcasting policies could block the transaction, the new administration seems keen on loosening the leash, with FCC chairman Ajit Pai already moving to [dismiss some of these regulations](https://www.brookings.edu/blog/techtank/2017/07/11/trump-fcc-deregulation-threatens-local-broadcasting/) [^8].
 
