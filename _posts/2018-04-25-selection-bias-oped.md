@@ -69,6 +69,8 @@ In a sense, we reveal a distance between sources in this "preference space". Thi
 ![Footer]({% asset_path sources.png %})
 *Figure 4: Popular sources vs Diverse sources in the selection space*
 
+What we have done here is pretty much build a profile on  sources, characterising the way they interact with the news. This is what is usually done in the field of collaborative filtering, a field of Machine Learning popular for its use in recommendations, such as on Netflix or Amazon. It has been prone to criticism regarding some *echo-chamber* or *filter-bubble* effects. Unfortunately, these effects were inherently baked into the very methods that are used to issue these recommendations. The simple assumption was that similar people will show similar behaviour. These similarities are then used to recommend *"movies people like you watched"* or tell you that *"people who bought this also bought"*. In this work we show these methods can also be used to do the opposite, by recommending *"news sources different from you have covered"* or tell you that *"this different source also covered"* a given event..
+
 
 Of course, this cannot be considered a solution to “fake news”, and one should be weary of such claims of technology as the universal problem solver.  Nevertheless, the use of popular machine learning methods has yielded interesting insights into the way streams of information are fed.  This opens the door for media accountability frameworks which use the only thing that no media outlet can hide: the content that they cover.
 
