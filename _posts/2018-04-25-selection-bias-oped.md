@@ -64,6 +64,12 @@ Our method did what it was intended to do: we identify and bring together source
 
 While certainly not exhaustive, our method was able to detect and group local stations that were all part of larger structures, such as Sinclair Broadcasting Group, which controlled swaths of news outlets across the country.
 
+In a sense, we reveal a distance between sources in this "preference space". This useful information for a news aggregator for example, who must select a set of sources from which to broadcast information. The simple method would be to select the sources that cover the most events, as the event space would assuredly be covered. Unfortunately we show that while the number of articles is high, the number of actual events these articles refer to is quite low. Additionally these sources are shown to be very similar in the selection space. There is a lack of diversity in the news coverage. One way to counteract this problem is to select a set of sources as diverse as possible, in the sense of our distance in terms of coverage. Of course, increasing the diversity of sources is essential, but this selection must also retain important events. We show that methods such as Maximum Marginal Retrieval (MMR) can lead to an increased diversity in coverage while retaining the most popular events.
+
+![Footer]({% asset_path sources.png %})
+*Figure 4: Popular sources vs Diverse sources in the selection space*
+
+
 Of course, this cannot be considered a solution to “fake news”, and one should be weary of such claims of technology as the universal problem solver.  Nevertheless, the use of popular machine learning methods has yielded interesting insights into the way streams of information are fed.  This opens the door for media accountability frameworks which use the only thing that no media outlet can hide: the content that they cover.
 
 The more information is produced, the more it has to be curated so as to not induce an already menacing information overload.  News connected the world before instantaneous sharing, allowing people to share the events of their communities across the globe.  While it is unrealistic to believe that we can keep up with the immense body of information being produced across the world, we must realize the importance of a free, diverse and leveled press, and the threat the lack of these values represents to our perception of the world around us.
