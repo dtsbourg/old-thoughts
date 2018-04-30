@@ -2,6 +2,7 @@
 layout: post
 title: "How editorial decisions can reveal a worrying lack of diversity in news coverage"
 description: "Machine learning personalisation methods have the ability to bias the content of a news feed, and reinforce filter bubbles.  Can they also be used to do the opposite? ."
+thumb_image: "broadcast.png"
 tags: [journalism, misinformation, paper, webconf, bias]
 ---
 
