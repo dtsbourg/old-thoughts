@@ -70,7 +70,7 @@ In our paper, we propose to leverage our new measure of similarity between news 
 
 
 ![Footer]({% asset_path sources.png %})
-*Figure 4: Popular sources vs Diverse sources in the selection space*
+*Figure 4: A selection of Popular sources (left) vs a selection of Diverse sources (right) in the selection space*
 
 
 Of course, this cannot be considered a solution to “fake news”, and one should be weary of such claims of technology as the universal problem solver.  Nevertheless, the use of popular machine learning methods has yielded interesting insights into the way streams of information are fed.  This opens the door for media accountability frameworks which use the only thing that no media outlet can hide: the content that they cover.
