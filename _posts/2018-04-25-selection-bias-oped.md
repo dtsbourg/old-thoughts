@@ -18,6 +18,7 @@ Now, this is curious. Tuned into your local station, you listen on as the journa
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The Fake News Networks, those that knowingly have a sick and biased AGENDA, are worried about the competition and quality of Sinclair Broadcast. The “Fakers” at CNN, NBC, ABC &amp; CBS have done so much dishonest reporting that they should only be allowed to get awards for fiction!</p>&mdash; Donald J. Trump (@realDonaldTrump) <a href="https://twitter.com/realDonaldTrump/status/981117684489379840?ref_src=twsrc%5Etfw">April 3, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+
 As it turns out, your local station is not the only one to have run this segment. Across the country, news anchors recite variations of this text, warning against “some members of the media [that] use their platforms to push their own personal bias and agenda to control exactly what people think”. This message was aired, often more than once, across the country: CBS 12 in West Palm Beach, Florida, NBC 16 in Eugene, Oregon, Fox 28 in Columbus, Ohio, …
 
 Why would all these local stations, apparently across affiliations, decide to coordinate a full-on attack on mainstream media? It turns out they didn't choose to, the institution that owns their station did, and some anchors were furious about it.
@@ -44,7 +45,7 @@ Following this insight, the first bias that we identify is an obvious one: geogr
 
 
 ![Geographical]({% asset_path geo.png %})
-*Figure 1: Geographical clusters in the selection space*
+*Figure 1: Geographical clusters in the selection space ([Click here for an interactive version](https://selection-bias-www2018.github.io))*
 
 
 Interestingly though, a second type of cluster emerged. The first time we started sifting through the algorithm's results, we figured there must be something wrong. What does Fox 25 in Oklahoma City have to do with ABC 20 in Springfield, Illinois? After scrolling through dozens of these websites, a pattern started emerging: similar website themes, as if they were all using the same template, and at the very bottom of the page, the mention of a common "Broadcasting Group".
@@ -57,7 +58,7 @@ Interestingly though, a second type of cluster emerged. The first time we starte
 Our method did what it was intended to do: we identify and bring together sources with similar decision processes. The clusters we identify are non-obvious, especially without access to the content, and most don't even have the same branding since they are often franchised outlets.
 
 ![Footer]({% asset_path broadcast.png %})
-*Figure 3: Broadcast syndication clusters in the selection space*
+*Figure 3: Broadcast syndication clusters in the selection space ([Click here for an interactive version](https://selection-bias-www2018.github.io))*
 
 While certainly not exhaustive, our method was able to detect and group local stations that were all part of larger structures, such as Sinclair Broadcasting Group, which controlled swaths of news outlets across the country.
 
@@ -81,3 +82,7 @@ The more information is produced, the more it has to be curated so as to not ind
 * Anti-Kerry 2 [link](http://articles.baltimoresun.com/2004-10-12/news/0410120139_1_vietnam-war-stolen-honor-democratic-party/2)
 * Sinclair conservative slant [link](https://www.washingtonpost.com/lifestyle/style/under-new-ownership-wjla-tv-takes-a-slight-turn-to-the-right/2014/09/16/a21ffa6e-3ac8-11e4-9c9f-ebb47272e40e_story.html?noredirect=on&utm_term=.14b9dbfdac73)
 * Sinclair conservative slant 2 [link](https://www.nytimes.com/2017/05/03/business/dealbook/sinclair-media-expansion-fox-conservative-media.html?_r=0)
+
+## Notice
+
+If you are interested in our work, have questions about the study or would like to share this article, feel free to contact me at any of the channels listed above or [on my website](dtsbourg.github.io). The paper is licensed under a CC-BY (4.0) license, as are the figures included in this article.
