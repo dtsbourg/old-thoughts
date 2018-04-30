@@ -75,7 +75,7 @@ In our paper, we propose to leverage our new measure of similarity between news 
 
 Of course, this cannot be considered a solution to “fake news”, and one should be weary of such claims of technology as the universal problem solver.  Nevertheless, the use of popular machine learning methods has yielded interesting insights into the way streams of information are fed.  This opens the door for media accountability frameworks which use the only thing that no media outlet can hide: the content that they cover.
 
-The more information is produced, the more it has to be curated so as to not induce an already menacing information overload.  News connected the world before instantaneous sharing, allowing people to share the events of their communities across the globe.  While it is unrealistic to believe that we can keep up with the immense body of information being produced across the world, we must realize the importance of a free, diverse and levelled press, and the threat the lack of these values represents to our perception of the world around us.
+It already seems inevitable that news curators take over the role of filtering the news for us, as many people already get their news through curated channels such as Facebook [^13] or Naver [^14]. This work is unfortunately just an attempt at mitigating some of the effects of these curated platforms.  News connected the world before instantaneous sharing, allowing people to share the events of their communities across the globe.  While it is unrealistic to believe that we can keep up with the immense body of information being produced across the world, we must realize the importance of a free, diverse and levelled press, and the threat the lack of these values represents to our perception of the world around us.
 
 ---
 <br />
@@ -98,3 +98,5 @@ If you are interested in our work, have questions about the study or would like 
 [^10]: Anti-Kerry 2 [link](http://articles.baltimoresun.com/2004-10-12/news/0410120139_1_vietnam-war-stolen-honor-democratic-party/2)
 [^11]: Sinclair conservative slant [link](https://www.washingtonpost.com/lifestyle/style/under-new-ownership-wjla-tv-takes-a-slight-turn-to-the-right/2014/09/16/a21ffa6e-3ac8-11e4-9c9f-ebb47272e40e_story.html?noredirect=on&utm_term=.14b9dbfdac73)
 [^12]: Sinclair conservative slant 2 [link](https://www.nytimes.com/2017/05/03/business/dealbook/sinclair-media-expansion-fox-conservative-media.html?_r=0)
+[^13]: Social media and news [link](http://www.journalism.org/2017/09/07/news-use-across-social-media-platforms-2017/#more-americans-now-get-news-on-multiple-social-media-sites)
+[^14]: Naver [link](http://www.koreatimes.co.kr/www/news/bizfocus/2012/04/334_109919.html)
