@@ -90,6 +90,10 @@ It already seems inevitable that news curators take over the role of filtering t
 
 If you are interested in our work, have questions about the study or would like to share this article, feel free to contact me at any of the channels listed above or [on my website](https://dtsbourg.github.io).  The paper is licensed under a CC-BY (4.0) license, as are the figures included in this article.
 
+## Edits
+
+* Monday, April 30th: *Added a couple paragraphs to clarify some aspects such as the need for curation and potential applications, thanks to comments from reddit ([/r/journalism](https://www.reddit.com/r/Journalism/comments/8g00qp/how_editorial_decisions_can_reveal_a_worrying/)) and the relationship to personalisation, thanks to [Romain Pittet](https://twitter.com/romainpittet)*
+
 ## Bibliography
 
 [^1]: Selection Bias in News Coverage: Learning it, Fighting it, WWW’18, D. Bourgeois, J. Rappaz, K. Aberer [link](https://selection-bias-www2018.github.io/)
