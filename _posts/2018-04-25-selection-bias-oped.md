@@ -6,6 +6,8 @@ thumb_image: "broadcast.png"
 tags: [journalism, misinformation, paper, webconf, bias]
 ---
 
+## Troubling Trends
+
 It’s 6PM in Syracuse: the traditional ballet of good and bad news can begin.  A local teller got robbed, international tensions reach new highs.  A lucky lottery winner took home an obscene amount of money, while the EU was enacting new data protection laws.
 
 Like most people, we respond strongly to relatable issues, even more so when delivered by familiar and trusted voices.  In this sense, local news really is the bedrock of most people's information stream, despite the rise of social media.  As you walk into a friend or family's home, chances are the television will be on.  A familiar face on screen, and in the corner a familiar logo, staples of American TV journalism over the last half-century: ABC, CNN, Fox News, CBS, MSNBC ...
@@ -35,6 +37,8 @@ Sinclair, the author of this anti-fake news manifesto, has also come under fire 
 
 To quote the memo directly: “This is extremely dangerous to our democracy”.
 
+## Finding Patterns
+
 When broadcast syndications were first envisioned, they answered a very real need to reduce costs for local stations.  Pooling resources between small news organizations was the most sensible way to provide journalists with more time for local news while providing a view of the world's events.
 
 Given the fractal scale at which the world's events occur, editors must make decisions with respect to the type of information they will send downstream.  Informed by geographic considerations, editorial guidelines, thematic regards or even logistic capabilities, this filtering process is very likely to introduce an imbalance in the stories that editors choose to promote.  Some events will end up over- or under-represented, which introduces a selection bias.  When larger organizations, such as Sinclair, push information downstream to their affiliates, the decision process becomes even more visible thanks to the scale at which it skews the event space.
@@ -63,6 +67,8 @@ Our method did what it was intended to do: we identify and bring together source
 *Figure 3: Broadcast syndication clusters in the selection space ([Click here for an interactive version](https://selection-bias-www2018.github.io)[^1])*
 
 While certainly not exhaustive, our method was able to detect and group local stations that were all part of larger structures, such as Sinclair Broadcasting Group, which controlled swaths of news outlets across the country.
+
+## Using Similarities to Diversity
 
 Take the case of a news aggregator for example, who must select a set of sources from which to broadcast information. The simple method would be to select the sources that cover the most events, since you would assure that most events would be shown to your readers. Unfortunately we show that while the number of articles is high, the number of actual events these articles refer to is quite low. Additionally these sources are shown to be very similar in the selection space (Fig. 4, left). In other words, there is a lack of diversity in the news coverage.
 
