@@ -68,7 +68,7 @@ Our method did what it was intended to do: we identify and bring together source
 
 While certainly not exhaustive, our method was able to detect and group local stations that were all part of larger structures, such as Sinclair Broadcasting Group, which controlled swaths of news outlets across the country.
 
-## Using Similarities to Diversity
+## Using Similarities to Diversify
 
 Take the case of a news aggregator for example, who must select a set of sources from which to broadcast information. The simple method would be to select the sources that cover the most events, since you would assure that most events would be shown to your readers. Unfortunately we show that while the number of articles is high, the number of actual events these articles refer to is quite low. Additionally these sources are shown to be very similar in the selection space (Fig. 4, left). In other words, there is a lack of diversity in the news coverage.
 
