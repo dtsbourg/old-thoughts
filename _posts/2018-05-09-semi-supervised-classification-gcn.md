@@ -53,9 +53,9 @@ were presented in F.Huszar's blog post, linked below)
 * How to handle mini-batches? Since the Adjacency matrix is needed, information about k-neighbours is needed for each iteration.
 * The authors note that the method does not naturally support undirected graphs, but propose to represent the original graph as a bipartite graph to model directed edges and edge features.
 * The semi-supervised setting could be better defined, taking cues from the _Realistic Evaluation of Semi-Supervised Learning Algorithms_ by Oliver et al. [^9].
-    * What are the class distributions for unlabelled data? (Only label sparsity seems to be reported)
-    * How does the proportion of unlabelled data influence the classification quality (and the label propagation model)?
-    * How were the different sets sampled (1k labelled examples for test)?
+    * What are the class distributions for unlabeled data? (Only label sparsity seems to be reported)
+    * How does the proportion of unlabeled data influence the classification quality (and the label propagation model)?
+    * How were the different sets sampled (1k labeled examples for test)?
 
 
 ## Resources
@@ -73,12 +73,12 @@ were presented in F.Huszar's blog post, linked below)
 
 ## References
 
-[^1]: Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering, by Michaël Defferrard, Xavier Bresson, Pierre Vandergheynst [link](https://arxiv.org/abs/1606.09375)
-[^2]: Gated Graph Sequence Neural Networks, by Yujia Li et al. [link](https://arxiv.org/abs/1511.05493)
-[^3]: Convolutional Networks on Graphs for Learning Molecular Fingerprints, by David Duvenaud et al. [link](https://arxiv.org/abs/1509.09292)
-[^4]: Learning with local and global consistency, by Zhou et al. [link](https://dl.acm.org/citation.cfm?id=2981386)
-[^5]: Manifold regularization: A geometric framework for learning from labeled and unlabeled examples, by Belkin et al. [link](https://dl.acm.org/citation.cfm?id=1248632)
-[^6]: Deep learning via semi-supervised embedding, by Weston et al. [link](https://dl.acm.org/citation.cfm?id=1390303)
-[^7]: Wavelets on graphs via spectral graph theory, by Hammond et al. [link](https://arxiv.org/abs/0912.3848)
-[^8]: On the Combinatorial Power of the Weisfeiler-Lehman Algorithm, by Marten Fürer [link](https://arxiv.org/abs/1704.01023)
-[^9]: Realistic Evaluation of Semi-Supervised Learning Algorithms, by Oliver et al. [link](https://arxiv.org/abs/1804.09170)
+[^1]: *Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering*, by Michaël Defferrard, Xavier Bresson, Pierre Vandergheynst [link](https://arxiv.org/abs/1606.09375)
+[^2]: *Gated Graph Sequence Neural Networks*, by Yujia Li et al. [link](https://arxiv.org/abs/1511.05493)
+[^3]: *Convolutional Networks on Graphs for Learning Molecular Fingerprints*, by David Duvenaud et al. [link](https://arxiv.org/abs/1509.09292)
+[^4]: *Learning with local and global consistency*, by Zhou et al. [link](https://dl.acm.org/citation.cfm?id=2981386)
+[^5]: *Manifold regularization: A geometric framework for learning from labeled and unlabeled examples*, by Belkin et al. [link](https://dl.acm.org/citation.cfm?id=1248632)
+[^6]: *Deep learning via semi-supervised embedding*, by Weston et al. [link](https://dl.acm.org/citation.cfm?id=1390303)
+[^7]: *Wavelets on graphs via spectral graph theory*, by Hammond et al. [link](https://arxiv.org/abs/0912.3848)
+[^8]: *On the Combinatorial Power of the Weisfeiler-Lehman Algorithm*, by Marten Fürer [link](https://arxiv.org/abs/1704.01023)
+[^9]: *Realistic Evaluation of Semi-Supervised Learning Algorithms*, by Oliver et al. [link](https://arxiv.org/abs/1804.09170)
