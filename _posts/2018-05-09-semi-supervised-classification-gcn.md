@@ -2,7 +2,7 @@
 layout: post
 title: "[NOTES] Semi-Supervised Classification with Graph Convolutional Networks"
 description: "by T. Kipf, M. Welling"
-tags: [ML, deep_learning, notes, graph]
+tags: [ML, deep_learning, notes, Graph]
 ---
 
 [OpenReview (ICLR '17)](https://openreview.net/forum?id=SJU4ayYgl)
@@ -13,7 +13,7 @@ Classifying nodes in a graph where labels are only available for a small subset 
 
 ## Why?
 
-Usually smoothing label information over graphs is done via graph-based regularization (see [^4],[^5],[^6]). This can
+Usually smoothing label information over graphs is done via graph-based regularization (see [^4;^5;^6]). This can
 be an issue as it assumes that connected nodes are likely to share the same label, which is
 not always the case. This methods encodes actual node similarity w.r.t to the vertex features.
 
