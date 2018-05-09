@@ -71,6 +71,7 @@ were presented in F.Huszar's blog post, linked below)
 * [Thomas Kipf (author) post](https://tkipf.github.io/graph-convolutional-networks/)
 * [/r/MachineLearning discussion of @fhuszar's post](https://www.reddit.com/r/MachineLearning/comments/52klq2/how_powerful_are_these_graph_convolutional/)
 * [HN Discussion](https://news.ycombinator.com/item?id=12619694)
+* [Discussion on Twitter with the Thomas Kipf, addressing some of the comments highlighted here](https://twitter.com/thomaskipf/status/994210684761264128)
 
 ## References
 
