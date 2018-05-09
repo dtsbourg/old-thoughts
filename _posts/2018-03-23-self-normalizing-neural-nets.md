@@ -2,7 +2,7 @@
 layout: post
 title: "[NOTES] Self-Normalizing Neural Networks (SELU)"
 description: "by G. Klambauer, T. Unterthiner, A. Mayr, and S. Hochreiter"
-tags: [ML, deep_learning, notes]
+tags: [ML, deeplearning, notes]
 ---
 
 [arXiv](https://arxiv.org/abs/1706.02515)
