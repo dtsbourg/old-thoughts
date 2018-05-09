@@ -2,7 +2,7 @@
 layout: post
 title: "[NOTES] Unsupervised Learning of Goal Spaces for Intrinsically Motivated Goal Exploration"
 description: "by A. Péré, S. Forestier, O. Sigaud and P.-Y. Oudeyer"
-tags: [ML, deep_learning, notes, reinforcementlearning]
+tags: [ml, deep_learning, notes, reinforcementlearning]
 ---
 
 [Open Review](https://openreview.net/forum?id=S1DWPP1A-)

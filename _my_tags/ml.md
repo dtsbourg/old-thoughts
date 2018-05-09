@@ -1,4 +1,4 @@
 ---
-slug: ML
-name: ML
+slug: ml
+name: ml
 ---
