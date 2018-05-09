@@ -1,4 +1,4 @@
 ---
-slug: deep_learning
+slug: Deep learning
 name: Deep learning
 ---
