@@ -51,7 +51,8 @@ were presented in F.Huszar's blog post, linked below)
 ## Questions
 
 * How to handle mini-batches? Since the Adjacency matrix is needed, information about k-neighbours is needed for each iteration.
-* The authors note that the method does not naturally support undirected graphs, but propose to represent the original graph as a bipartite graph to model directed edges and edge features.
+    * [EDIT] The authors have [pointed out](https://twitter.com/thomaskipf/status/994210684761264128) that this issue has been addressed in frameworks like GraphSAGE [^10]
+* The authors note that the method does not naturally support directed graphs, but propose to represent the original graph as a bipartite graph to model directed edges and edge features.
 * The semi-supervised setting could be better defined, taking cues from the _Realistic Evaluation of Semi-Supervised Learning Algorithms_ by Oliver et al. [^9].
     * What are the class distributions for unlabeled data? (Only label sparsity seems to be reported)
     * How does the proportion of unlabeled data influence the classification quality (and the label propagation model)?
@@ -82,3 +83,4 @@ were presented in F.Huszar's blog post, linked below)
 [^7]: *Wavelets on graphs via spectral graph theory*, by Hammond et al. [link](https://arxiv.org/abs/0912.3848)
 [^8]: *On the Combinatorial Power of the Weisfeiler-Lehman Algorithm*, by Marten Fürer [link](https://arxiv.org/abs/1704.01023)
 [^9]: *Realistic Evaluation of Semi-Supervised Learning Algorithms*, by Oliver et al. [link](https://arxiv.org/abs/1804.09170)
+[^10]: *Inductive Representation Learning on Large Graphs*, by Hamilton et al. [link](https://arxiv.org/abs/1706.02216)
