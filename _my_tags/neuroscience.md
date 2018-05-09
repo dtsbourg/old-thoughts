@@ -1,4 +1,4 @@
 ---
 slug: neuroscience
-name: Neuroscience
+name: neuroscience
 ---

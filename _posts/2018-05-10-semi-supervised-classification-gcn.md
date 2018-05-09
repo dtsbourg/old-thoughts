@@ -2,7 +2,7 @@
 layout: post
 title: "[NOTES] Semi-Supervised Classification with Graph Convolutional Networks"
 description: "by T. Kipf, M. Welling"
-tags: [ML, Deep learning, notes, Graph]
+tags: [ML, deep_learning, notes, graph]
 ---
 
 [OpenReview (ICLR '17)](https://openreview.net/forum?id=SJU4ayYgl)

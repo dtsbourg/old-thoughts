@@ -1,4 +1,4 @@
 ---
 slug: Deep learning
-name: Deep Learning
+name: deep_learning
 ---
