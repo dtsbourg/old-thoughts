@@ -13,7 +13,7 @@ Classifying nodes in a graph where labels are only available for a small subset 
 
 ## Why?
 
-Usually smoothing label information over graphs is done via graph-based regularization (see [^4;^5;^6]). This can
+Usually smoothing label information over graphs is done via graph-based regularization (see [^4] [^5] [^6]). This can
 be an issue as it assumes that connected nodes are likely to share the same label, which is
 not always the case. This methods encodes actual node similarity w.r.t to the vertex features.
 
@@ -25,7 +25,7 @@ optimised as loss terms, so the whole process is learned end-to-end.
 
 This feature map is learned using Graph Convolutional Networks. The authors
 provide a derivation of the propagation model through first-order approximation
-of localized spatial filters [^1], [^7]. The main take away is that $$k$$ applications of a linear filter result in
+of localized spatial filters [^1] [^7]. The main take away is that $$k$$ applications of a linear filter result in
 convolving the $$k^{th}$$-order neighbourhood, as if is was a filter of degree $$k$$. This is what makes the method tractable.
 
 The authors also provide the propagation model as a derivation of the Weisfeiler-Lehman algorithm [^8] in Appendix A.
@@ -45,7 +45,7 @@ power-grid balancing, computer graphics, relational networks (social, citation, 
 Seeing that the semi-supervised setting is natural is very encouraging for applications in these domains (note that some limitations
 were presented in F.Huszar's blog post, linked below)
 * It is a powerful formulation for graphs where either the structure of the graph or the nodes have partial or missing information: inference can still be run.
-* Can be extended to do graph-level (or subgraph) classification with a pooling layer (such as [^2],[^3])
+* Can be extended to do graph-level (or subgraph) classification with a pooling layer (such as [^2] [^3])
 * Seems like there were quite a few memory issues in implementation
 
 ## Questions
