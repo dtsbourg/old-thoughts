@@ -1,4 +1,4 @@
 ---
-slug: Graph
+slug: graph
 name: graph
 ---

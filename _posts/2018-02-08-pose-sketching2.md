@@ -2,7 +2,7 @@
 layout: post
 title: "Pose Sketching for the Control of a Humanoid Robot - Part 2"
 description: "The visual servoing problem."
-tags: [robot, project, epfl, visual]
+tags: [robot, project, epfl]
 ---
 
 ## Introduction

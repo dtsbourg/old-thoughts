@@ -1,4 +1,4 @@
 ---
-slug: Machine Learning
+slug: ML
 name: ML
 ---

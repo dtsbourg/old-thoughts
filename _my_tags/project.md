@@ -1,4 +1,4 @@
 ---
 slug: project
-name: Project
+name: project
 ---

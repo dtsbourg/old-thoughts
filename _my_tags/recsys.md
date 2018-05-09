@@ -1,4 +1,4 @@
 ---
 slug: recsys
-name: Recsys
+name: recsys
 ---

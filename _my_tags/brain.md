@@ -1,4 +1,4 @@
 ---
 slug: brain
-name: Brain
+name: brain
 ---

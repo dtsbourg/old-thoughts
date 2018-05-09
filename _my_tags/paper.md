@@ -1,4 +1,4 @@
 ---
 slug: paper
-name: Paper
+name: paper
 ---

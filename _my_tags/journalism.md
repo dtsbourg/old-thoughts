@@ -1,4 +1,4 @@
 ---
 slug: journalism
-name: Journalism
+name: journalism
 ---

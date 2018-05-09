@@ -1,4 +1,4 @@
 ---
 slug: hackathon
-name: Hackathon
+name: hackathon
 ---

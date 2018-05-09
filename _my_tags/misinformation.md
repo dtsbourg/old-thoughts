@@ -1,4 +1,4 @@
 ---
 slug: misinformation
-name: Misinformation
+name: misinformation
 ---

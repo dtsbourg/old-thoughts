@@ -1,4 +1,4 @@
 ---
-slug: epfl
+slug: EPFL
 name: EPFL
 ---

@@ -1,4 +1,4 @@
 ---
 slug: intro
-name: Intro
+name: intro
 ---
