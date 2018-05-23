@@ -41,6 +41,7 @@ assets:
     - _assets/images/pose-sketch
     - _assets/images/selu
     - _assets/images/selbias
+    - _assets/images/graphsage
 collections:
   my_tags:
     output: true
