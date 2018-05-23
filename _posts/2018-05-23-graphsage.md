@@ -9,7 +9,7 @@ tags: [ml, deeplearning, notes, graph]
 
 ## What?
 
-**GraphSAGE** (SAmple and AggreGatE): A general *inductive* learning framework for node embeddings.
+**GraphSAGE** (SAmple and aggreGatE): A general *inductive* learning framework for node embeddings.
 
 ## Why?
 
@@ -42,6 +42,14 @@ a permutation of the inputs should not change the result, since the "ordering" o
 * Mean Aggregator: close to GCN [^2] as a linear approximation of a localized spectral convolution
 * LSTM Aggregator: Larger expressive power but not inherently symmetric
 * Pooling Aggregator: No significant difference between max- and mean-pooling.
+
+#### Appendix: Mini-batch setting
+
+![minibatch]({% asset_path minibatch.png %})
+*Figure 3: GraphSAGE mini-batch setting [^1]*
+
+The required nodes are sampled first, so that the mini-batch "sets" (nodes needed to compute
+the embedding at depth $$k$$) are available in the main loop, and everything can be run in parallel. 
 
 ## Evaluation
 
