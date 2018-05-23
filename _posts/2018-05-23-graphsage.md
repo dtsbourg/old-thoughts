@@ -5,7 +5,7 @@ description: "by W. Hamilton, R. Ying, J. Leskovec"
 tags: [ml, deeplearning, notes, graph]
 ---
 
-[OpenReview (NIPS '17)](https://arxiv.org/abs/1706.02216)
+[ArXiv (NIPS '17)](https://arxiv.org/abs/1706.02216)
 
 ## What?
 
@@ -67,9 +67,8 @@ sampled at depth $$k=1,2$$.
 
 ## Questions
 
-* How to leverage some priors about the graph (e.g. powerlaw -> Poincaré embeddings [^3])?
+* How to leverage some priors about the graph structure (e.g. if it follows a powerlaw, Poincaré embeddings [^3] have been shown to be an efficient embedding)?
 * Why is there no improvement for larger depths? Is it akin to the problems faced by deeper feed-forward nets?
-* Locality of aggregation functions?
 * Could this method be used to predict the number of neighbors a given node has? (*Theorem 1* seems to indicate that it is possible)
 * Several of the graph size parameters are heuristic / hardcoded (depth, neighbor sampling, graph density). Could they be learned / optimized for as hyperparameters?
 * Are there mechanisms to prevent re-sampling the same nodes again? (i.e. in a sparse graph the node doesn't necessarily have $$S_k$$ neighbors to sample from. Note that the authors specify that this method is designed for large graphs which *require* subsampling to be treated)
