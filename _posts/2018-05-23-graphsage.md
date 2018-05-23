@@ -9,7 +9,7 @@ tags: [ml, deeplearning, notes, graph]
 
 ## What?
 
-GraphSAGE (SAmple and AggreGatE): A general *inductive* learning framework for node embeddings.
+**GraphSAGE** (SAmple and AggreGatE): A general *inductive* learning framework for node embeddings.
 
 ## Why?
 
@@ -72,6 +72,7 @@ sampled at depth $$k=1,2$$.
 * Could this method be used to predict the number of neighbors a given node has? (*Theorem 1* seems to indicate that it is possible)
 * Several of the graph size parameters are heuristic / hardcoded (depth, neighbor sampling, graph density). Could they be learned / optimized for as hyperparameters?
 * Are there mechanisms to prevent re-sampling the same nodes again? (i.e. in a sparse graph the node doesn't necessarily have $$S_k$$ neighbors to sample from. Note that the authors specify that this method is designed for large graphs which *require* subsampling to be treated)
+* Could we use non-local operators as aggregator functions? (these non-local operators have shown promising results comparable to local operations like convolutions [^7] [^8])
 
 ## Resources
 #### Code
@@ -94,3 +95,5 @@ sampled at depth $$k=1,2$$.
 [^4]: *DeepWalk: Online Learning of Social Representations*, by B. Perozzi, R. Al-Rfou, S. Skiena [link](https://arxiv.org/abs/1403.6652)
 [^5]: *FastGCN: Fast Learning with Graph Convolutional Networks via Importance Sampling*, by J. Chen, T. Ma, C. Xiao [link](https://openreview.net/forum?id=rytstxWAW)
 [^6]: *Representation Learning on Graphs: Methods and Applications*, by W. Hamilton, R. Ying, J. Leskovec by [link](https://arxiv.org/abs/1709.05584)
+[^7]: *Non-local Neural Networks*, by X. Wang, R. Girshick, A. Gupta, K. He [link](https://arxiv.org/pdf/1711.07971.pdf)
+[^8]: *A non-local algorithm for image denoising*, by A. Buades, B. Coll, J.-M. Morel [link](https://www.iro.umontreal.ca/~mignotte/IFT6150/Articles/Buades-NonLocal.pdf)
