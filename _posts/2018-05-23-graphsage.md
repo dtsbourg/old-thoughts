@@ -72,7 +72,7 @@ sampled at depth $$k=1,2$$.
 * Could this method be used to predict the number of neighbors a given node has? (*Theorem 1* seems to indicate that it is possible)
 * Several of the graph size parameters are heuristic / hardcoded (depth, neighbor sampling, graph density). Could they be learned / optimized for as hyperparameters?
 * Are there mechanisms to prevent re-sampling the same nodes again? (i.e. in a sparse graph the node doesn't necessarily have $$S_k$$ neighbors to sample from. Note that the authors specify that this method is designed for large graphs which *require* subsampling to be treated)
-* Could we use non-local operators as aggregator functions? (these non-local operators have shown promising results comparable to local operations like convolutions [^7] [^8])
+* Could we use non-local operators as aggregator functions? (these non-local operators have shown promising results comparable to local operations like convolutions [^7] [^8]) This could require a much smaller neighborhood to capture the same long range dependencies.
 
 ## Resources
 #### Code
