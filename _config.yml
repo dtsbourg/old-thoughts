@@ -36,12 +36,12 @@ assets:
     - _assets/javascripts
     - _assets/stylesheets
     - _assets/yarn
-    - _assets/stylesheets/modules/_icons.scss
     - _assets/images/ico
     - _assets/images/pose-sketch
     - _assets/images/selu
     - _assets/images/selbias
     - _assets/images/graphsage
+    - _assets/stylesheets/modules/_icons.scss
 collections:
   my_tags:
     output: true
