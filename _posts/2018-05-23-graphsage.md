@@ -13,7 +13,7 @@ tags: [ml, deeplearning, notes, graph]
 
 ## Why?
 
-Most recent work ([^2]) has focus on the *transductive* setting, in which the graph is fixed
+Most recent work (e.g. [^2]) has focus on the *transductive* setting, in which the graph is fixed
 so the goal is to predict label information for unlabelled (not unseen) nodes. If a new node
 was to be added, the entire embedding would need to be recomputed, making the methods costly
 for dynamic or dense graphs, as well as making it difficult to train in a mini-batch setting.
