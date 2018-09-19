@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>dtsbourg / Thoughts | [NOTES] Semi-Supervised Classification with Graph Convolutional Networks</title>
+  <meta name="description" content="by T. Kipf, M. Welling">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="[NOTES] Semi-Supervised Classification with Graph Convolutional Networks">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dtsbourg.github.io/thoughts/posts/semi-supervised-classification-gcn">
+  <meta property="og:description" content="by T. Kipf, M. Welling">
+  <meta property="og:site_name" content="dtsbourg / Thoughts">
+  <meta property="og:image" content="https://dtsbourg.github.io/thoughts/thoughts/assets/ico/favicon.ico">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://dtsbourg.github.io/thoughts/posts/semi-supervised-classification-gcn">
+  <meta name="twitter:title" content="[NOTES] Semi-Supervised Classification with Graph Convolutional Networks">
+  <meta name="twitter:description" content="by T. Kipf, M. Welling">
+  <meta name="twitter:image" content="https://dtsbourg.github.io/thoughts/thoughts/assets/ico/favicon.ico">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/thoughts/assets/ico/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/thoughts/assets/ico/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/thoughts/assets/ico/favicon-16x16.png">
+  <link rel="mask-icon" href="/thoughts/assets/ico/safari-pinned-tab.svg" color="#5bbad5">
+  <link href="https://dtsbourg.github.io/thoughts/feed.xml" type="application/rss+xml" rel="alternate" title="dtsbourg / Thoughts Last 10 blog posts" />
+
+  
+
+  
+    <link rel="stylesheet" href="/thoughts/assets/light.css">
+
+  
+</head>
+
+<body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav appear">
+  <a href="/thoughts/" class="header-logo" title="dtsbourg / Thoughts">dtsbourg / Thoughts</a>
+  <ul class="header-links">
+    
+    
+      <li>
+        <a href="https://twitter.com/dtsbourg" rel="noreferrer noopener" target="_blank" title="Twitter">
+          <span class="icon icon-twitter"></span>
+        </a>
+      </li>
+    
+    
+    
+      <li>
+        <a href="https://github.com/dtsbourg" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <span class="icon icon-github"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+      <li>
+        <a href="https://www.linkedin.com/in/dylan-bourgeois-319ab294" rel="noreferrer noopener" target="_blank" title="LinkedIn">
+          <span class="icon icon-linkedin"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+      <li>
+        <a href="/thoughts/feed.xml" rel="noreferrer noopener" target="_blank" title="RSS">
+          <span class="icon icon-rss"></span>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+        <article class="article appear">
+          <header class="article-header">
+            <h1>[NOTES] Semi-Supervised Classification with Graph Convolutional Networks</h1>
+            <p>by T. Kipf, M. Welling</p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                May 9, 2018
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  4 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/thoughts/tag/ml">ml</a>
+                
+                  <a href="/thoughts/tag/deeplearning">deeplearning</a>
+                
+                  <a href="/thoughts/tag/notes">notes</a>
+                
+                  <a href="/thoughts/tag/graph">graph</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <p><a href="https://openreview.net/forum?id=SJU4ayYgl">OpenReview (ICLR ‘17)</a></p>
+
+<h2 id="what">What?</h2>
+
+<p>Classifying nodes in a graph where labels are only available for a small subset of nodes.</p>
+
+<h2 id="why">Why?</h2>
+
+<p>Usually smoothing label information over graphs is done via graph-based regularization (see <sup id="fnref:4"><a href="#fn:4" class="footnote">1</a></sup> <sup id="fnref:5"><a href="#fn:5" class="footnote">2</a></sup> <sup id="fnref:6"><a href="#fn:6" class="footnote">3</a></sup>). This can
+be an issue as it assumes that connected nodes are likely to share the same label, which is
+not always the case. This methods encodes actual node similarity w.r.t to the vertex features.</p>
+
+<h2 id="how">How?</h2>
+
+<p>Proposes learning a feature map <script type="math/tex">f(X,A)</script>, as a function of both the labels and the adjacency, so
+as to encode the node similarity and graph structure at the same time. These features are then
+optimised as loss terms, so the whole process is learned end-to-end.</p>
+
+<p>This feature map is learned using Graph Convolutional Networks. The authors
+provide a derivation of the propagation model through first-order approximation
+of localized spatial filters <sup id="fnref:1"><a href="#fn:1" class="footnote">4</a></sup> <sup id="fnref:7"><a href="#fn:7" class="footnote">5</a></sup>. The main take away is that <script type="math/tex">k</script> applications of a linear filter result in
+convolving the <script type="math/tex">k^{th}</script>-order neighbourhood, as if is was a filter of degree <script type="math/tex">k</script>. This is what makes the method tractable.</p>
+
+<p>The authors also provide the propagation model as a derivation of the Weisfeiler-Lehman algorithm <sup id="fnref:8"><a href="#fn:8" class="footnote">6</a></sup> in Appendix A.</p>
+
+<h2 id="evaluation">Evaluation</h2>
+
+<ul>
+  <li>Document classification in citation networks with low label rates: <a href="https://relational.fit.cvut.cz/dataset/CORA">Cora</a>, <a href="https://catalog.data.gov/dataset/pubmed">PubMed</a>, <a href="http://csxstatic.ist.psu.edu/about/data">Citeseer</a></li>
+  <li>Semi-supervised entity classification in bipartite graphs extracted from knowledge graphs: <a href="http://rtw.ml.cmu.edu/rtw/kbbrowser/">NELL</a></li>
+  <li>Random graphs</li>
+</ul>
+
+<p>The authors achieve high classification accuracies for all the proposed tasks, and compare different propagation models.</p>
+
+<h2 id="comments">Comments</h2>
+
+<ul>
+  <li>Graph-based methods are a very exciting domain, with applications in domains like network analysis,
+power-grid balancing, computer graphics, relational networks (social, citation, political, …), video tracking, …
+Seeing that the semi-supervised setting is natural is very encouraging for applications in these domains (note that some limitations
+were presented in F.Huszar’s blog post, linked below)</li>
+  <li>It is a powerful formulation for graphs where either the structure of the graph or the nodes have partial or missing information: inference can still be run.</li>
+  <li>Can be extended to do graph-level (or subgraph) classification with a pooling layer (such as <sup id="fnref:2"><a href="#fn:2" class="footnote">7</a></sup> <sup id="fnref:3"><a href="#fn:3" class="footnote">8</a></sup>)</li>
+  <li>Seems like there were quite a few memory issues in implementation</li>
+</ul>
+
+<h2 id="questions">Questions</h2>
+
+<ul>
+  <li>How to handle mini-batches? Since the Adjacency matrix is needed, information about k-neighbours is needed for each iteration.
+    <ul>
+      <li>[EDIT] The authors have <a href="https://twitter.com/thomaskipf/status/994210684761264128">pointed out</a> that this issue has been addressed in frameworks like GraphSAGE <sup id="fnref:10"><a href="#fn:10" class="footnote">9</a></sup></li>
+    </ul>
+  </li>
+  <li>The authors note that the method does not naturally support directed graphs, but propose to represent the original graph as a bipartite graph to model directed edges and edge features.</li>
+  <li>The semi-supervised setting could be better defined, taking cues from the <em>Realistic Evaluation of Semi-Supervised Learning Algorithms</em> by Oliver et al. <sup id="fnref:9"><a href="#fn:9" class="footnote">10</a></sup>.
+    <ul>
+      <li>What are the class distributions for unlabeled data? (Only label sparsity seems to be reported)</li>
+      <li>How does the proportion of unlabeled data influence the classification quality (and the label propagation model)?</li>
+      <li>How were the different sets sampled (1k labeled examples for test)?</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+<h4 id="code">Code</h4>
+
+<ul>
+  <li><a href="https://github.com/tkipf/gcn">Tensorflow Implementation</a></li>
+</ul>
+
+<h4 id="discussion">Discussion</h4>
+
+<ul>
+  <li><a href="https://www.reddit.com/r/MachineLearning/comments/52d8ms/160902907_semisupervised_classification_with/">/r/MachineLearning</a></li>
+  <li><a href="http://www.inference.vc/how-powerful-are-graph-convolutions-review-of-kipf-welling-2016-2/">Ferenc Huszar post</a></li>
+  <li><a href="https://tkipf.github.io/graph-convolutional-networks/">Thomas Kipf (author) post</a></li>
+  <li><a href="https://www.reddit.com/r/MachineLearning/comments/52klq2/how_powerful_are_these_graph_convolutional/">/r/MachineLearning discussion of @fhuszar’s post</a></li>
+  <li><a href="https://news.ycombinator.com/item?id=12619694">HN Discussion</a></li>
+  <li><a href="https://twitter.com/thomaskipf/status/994210684761264128">Discussion on Twitter with the Thomas Kipf, addressing some of the comments highlighted here</a></li>
+</ul>
+
+<h2 id="references">References</h2>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:4">
+      <p><em>Learning with local and global consistency</em>, by Zhou et al. <a href="https://dl.acm.org/citation.cfm?id=2981386">link</a> <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:5">
+      <p><em>Manifold regularization: A geometric framework for learning from labeled and unlabeled examples</em>, by Belkin et al. <a href="https://dl.acm.org/citation.cfm?id=1248632">link</a> <a href="#fnref:5" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:6">
+      <p><em>Deep learning via semi-supervised embedding</em>, by Weston et al. <a href="https://dl.acm.org/citation.cfm?id=1390303">link</a> <a href="#fnref:6" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:1">
+      <p><em>Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering</em>, by Michaël Defferrard, Xavier Bresson, Pierre Vandergheynst <a href="https://arxiv.org/abs/1606.09375">link</a> <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:7">
+      <p><em>Wavelets on graphs via spectral graph theory</em>, by Hammond et al. <a href="https://arxiv.org/abs/0912.3848">link</a> <a href="#fnref:7" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:8">
+      <p><em>On the Combinatorial Power of the Weisfeiler-Lehman Algorithm</em>, by Marten Fürer <a href="https://arxiv.org/abs/1704.01023">link</a> <a href="#fnref:8" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p><em>Gated Graph Sequence Neural Networks</em>, by Yujia Li et al. <a href="https://arxiv.org/abs/1511.05493">link</a> <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p><em>Convolutional Networks on Graphs for Learning Molecular Fingerprints</em>, by David Duvenaud et al. <a href="https://arxiv.org/abs/1509.09292">link</a> <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:10">
+      <p><em>Inductive Representation Learning on Large Graphs</em>, by Hamilton et al. <a href="https://arxiv.org/abs/1706.02216">link</a> <a href="#fnref:10" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:9">
+      <p><em>Realistic Evaluation of Semi-Supervised Learning Algorithms</em>, by Oliver et al. <a href="https://arxiv.org/abs/1804.09170">link</a> <a href="#fnref:9" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+          </div>
+
+          <div class="article-share">
+            
+            
+            <a href="https://twitter.com/home?status=%5BNOTES%5D+Semi-Supervised+Classification+with+Graph+Convolutional+Networks - https://dtsbourg.github.io/thoughts/posts/semi-supervised-classification-gcn by @dtsbourg" title="Share on Twitter" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6 -18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6 0.8 15 2.5 22.1 -80.5-4-151.9-42.6-199.6-101.3 -8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7C67 210.7 52 206.3 39 199c0 0.4 0 0.8 0 1.2 0 47 33.4 86.1 77.7 95 -8.1 2.2-16.7 3.4-25.5 3.4 -6.2 0-12.3-0.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3 -33.1 26-74.9 41.5-120.3 41.5 -7.8 0-15.5-0.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-0.1-8.4-0.3-12.5C462.6 146 479 129 492 109.5z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://dtsbourg.github.io/thoughts/posts/semi-supervised-classification-gcn" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M288 192v-38.1c0-17.2 3.8-25.9 30.5-25.9H352V64h-55.9c-68.5 0-91.1 31.4-91.1 85.3V192h-45v64h45v192h83V256h56.4l7.6-64H288z"/></svg>
+            </a>
+            <a href="https://plus.google.com/share?url=https://dtsbourg.github.io/thoughts/posts/semi-supervised-classification-gcn" title="Share on Google+" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 128 128"><path d="M40.7 55.9v16.1c0 0 15.6 0 22 0C59.2 82.5 53.8 88.2 40.7 88.2c-13.3 0-23.7-10.8-23.7-24.2s10.4-24.2 23.7-24.2c7.1 0 11.6 2.5 15.8 5.9 3.3-3.3 3.1-3.8 11.6-11.9 -7.2-6.6-16.8-10.6-27.4-10.6C18.2 23.3 0 41.5 0 64c0 22.5 18.2 40.7 40.7 40.7 33.6 0 41.8-29.3 39-48.8H40.7zM113.9 56.7V42.6h-10.1v14.1H89.4v10.1h14.5v14.5h10.1V66.8H128V56.7H113.9z"/></svg>
+            </a>
+            <a href="http://news.ycombinator.com/submitlink?url=https://dtsbourg.github.io/thoughts/posts/semi-supervised-classification-gcn" title="Share on HN" rel="noreferrer noopener" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-label="Hacker News" role="img" viewBox="0 0 512 512"><rect width="512" height="512" fill="#ADA8A8" rx="15%"/><path fill="#fff" d="M124 91h51l81 162 81-164h51L276 293v136h-40V293z"/></svg>            
+            </a>
+          </div>
+
+          
+        </article>
+        <footer class="footer appear">
+  <p>
+    I'm
+    <a href="https://dtsbourg.github.io" title="About me">Dylan Bourgeois</a>. I study robots and their brains.
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  
+  <script>
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','UA-65856095-1','auto');ga('send','pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+
+
+<script src="/thoughts/assets/vendor.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+  <script src="/thoughts/assets/webfonts.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+
+  <script src="/thoughts/assets/scrollappear.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<script src="/thoughts/assets/application.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+</body>
+</html>

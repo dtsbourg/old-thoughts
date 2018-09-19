@@ -1,4 +1,0 @@
----
-slug: neuroscience
-name: neuroscience
----

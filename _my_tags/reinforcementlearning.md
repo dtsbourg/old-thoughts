@@ -1,4 +1,0 @@
----
-slug: reinforcementlearning
-name: reinforcementlearning
----

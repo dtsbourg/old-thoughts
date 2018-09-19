@@ -1,4 +1,0 @@
----
-slug: recsys
-name: recsys
----

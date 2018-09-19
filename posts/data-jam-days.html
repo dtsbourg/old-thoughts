@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>dtsbourg / Thoughts | Recommender Systems to extract voting patterns in the Swiss parliament</title>
+  <meta name="description" content="Data Jam Days at EPFL (24-25 Nov. 2017)">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Recommender Systems to extract voting patterns in the Swiss parliament">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dtsbourg.github.io/thoughts/posts/data-jam-days">
+  <meta property="og:description" content="Data Jam Days at EPFL (24-25 Nov. 2017)">
+  <meta property="og:site_name" content="dtsbourg / Thoughts">
+  <meta property="og:image" content="https://dtsbourg.github.io/thoughts/thoughts/assets/ico/favicon.ico">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://dtsbourg.github.io/thoughts/posts/data-jam-days">
+  <meta name="twitter:title" content="Recommender Systems to extract voting patterns in the Swiss parliament">
+  <meta name="twitter:description" content="Data Jam Days at EPFL (24-25 Nov. 2017)">
+  <meta name="twitter:image" content="https://dtsbourg.github.io/thoughts/thoughts/assets/ico/favicon.ico">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/thoughts/assets/ico/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/thoughts/assets/ico/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/thoughts/assets/ico/favicon-16x16.png">
+  <link rel="mask-icon" href="/thoughts/assets/ico/safari-pinned-tab.svg" color="#5bbad5">
+  <link href="https://dtsbourg.github.io/thoughts/feed.xml" type="application/rss+xml" rel="alternate" title="dtsbourg / Thoughts Last 10 blog posts" />
+
+  
+
+  
+    <link rel="stylesheet" href="/thoughts/assets/light.css">
+
+  
+</head>
+
+<body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav appear">
+  <a href="/thoughts/" class="header-logo" title="dtsbourg / Thoughts">dtsbourg / Thoughts</a>
+  <ul class="header-links">
+    
+    
+      <li>
+        <a href="https://twitter.com/dtsbourg" rel="noreferrer noopener" target="_blank" title="Twitter">
+          <span class="icon icon-twitter"></span>
+        </a>
+      </li>
+    
+    
+    
+      <li>
+        <a href="https://github.com/dtsbourg" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <span class="icon icon-github"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+      <li>
+        <a href="https://www.linkedin.com/in/dylan-bourgeois-319ab294" rel="noreferrer noopener" target="_blank" title="LinkedIn">
+          <span class="icon icon-linkedin"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+      <li>
+        <a href="/thoughts/feed.xml" rel="noreferrer noopener" target="_blank" title="RSS">
+          <span class="icon icon-rss"></span>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+        <article class="article appear">
+          <header class="article-header">
+            <h1>Recommender Systems to extract voting patterns in the Swiss parliament</h1>
+            <p>Data Jam Days at EPFL (24-25 Nov. 2017)</p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                November 24, 2017
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  4 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/thoughts/tag/ml">ml</a>
+                
+                  <a href="/thoughts/tag/recsys">recsys</a>
+                
+                  <a href="/thoughts/tag/hackathon">hackathon</a>
+                
+                  <a href="/thoughts/tag/project">project</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <h1 id="parlament">Parlament</h1>
+
+<p>This work was done in the context of the <a href="http://datajamdays.org/">Data Jam Days</a> at EPFL
+(<em>24-25 Nov 2017</em>).</p>
+
+<h2 id="intro">Intro</h2>
+
+<p>The Swiss confederation provides a large amount of data spanning virtually
+every aspect of the political process in Switzerland. With a convenient API
+to query the proceedings of committees, councillors, parties, logs of voting sessions …</p>
+
+<p>From this massive resource we decided to study voting patterns in the Swiss
+government.</p>
+
+<h2 id="main-contribution">Main contribution</h2>
+
+<blockquote>
+  <p>Our insight was that voting patterns can be considered as a recommender
+system : the user-item interaction matrix is a politician-vote interaction
+matrix.</p>
+</blockquote>
+
+<p>The attractiveness of this method is that we get some insights “for free”.
+The matrix completion setting allows for vote prediction : we can guess how
+likely a politician is to vote yes/no on an issue given his voting record and
+the voting record of his peers.
+In the matrix factorisation setting we compute a latent space representation
+of the politicians and the votes : these factors can represent some higher level
+characteristics, embedded within the observations. We can compute similarities
+or correlations in these higher dimensional spaces to get insight on the voting
+patterns.</p>
+
+<h2 id="data">Data</h2>
+<h3 id="initial-research">Initial research</h3>
+
+<p>We first applied our analysis to the subset of the 7 federal councillors. We
+scraped their complete voting records, and started designing our data exploration
+pipeline on this set.</p>
+
+<h3 id="full-data-exploration">Full data exploration</h3>
+
+<p>We then scraped the councillors representing 4 major parties of Switzerland * :</p>
+
+<ul>
+  <li>PLR (Parti Libéral Radical) / FDP (The Liberals)</li>
+  <li>UDC (Union Démocratique Chrétienne)</li>
+  <li>PS (Parti Socialiste)</li>
+  <li>Verts</li>
+</ul>
+
+<p>This represents <strong>175 councillors</strong> and <strong>1718 voting instances</strong>.</p>
+
+<p>A voting instance is considered to be the discussion of an article of law. There
+are several possible states for each councillor’s voting behaviour on the issue :</p>
+
+<ul>
+  <li><code class="highlighter-rouge">Yes</code></li>
+  <li><code class="highlighter-rouge">No</code></li>
+  <li><code class="highlighter-rouge">P</code>  = President of the concerned committee (can’t vote)</li>
+  <li><code class="highlighter-rouge">EH</code> = Abstained</li>
+  <li><code class="highlighter-rouge">ES</code> = Absent</li>
+  <li><code class="highlighter-rouge">NT</code> = did not participate</li>
+</ul>
+
+<p>* <em>This is an arbitrary choice, no preferences expressed :)</em></p>
+
+<h2 id="results-and-insights">Results and insights</h2>
+
+<p>The main results of the Data Jam Days focus on the representation of voting
+in the Swiss parliament. They were projected into a 7 dimensional latent space
+and plotted by reducing down to 2 dimensions with <a href="https://lvdmaaten.github.io/tsne/">t-SNE</a>.</p>
+
+<p><img src="https://github.com/lazareGirardin/DataJamDays/blob/master/img/Global_Vote_map.png?raw=true" alt="Global Vote Map" />
+<em>Figure 1 : Clusters of voting instances</em></p>
+
+<p>The voting patterns are overlayed with a party’s voting behaviour. Convention
+is to use the color green for a <code class="highlighter-rouge">Yes</code> vote and blue for any other voting behaviour.
+The party’s line is chosen with a positive bias : if at least one of the members
+voted <code class="highlighter-rouge">Yes</code> it is considered the party line. This metric will be adapted in a more
+refined analysis.</p>
+
+<p><img src="https://github.com/lazareGirardin/DataJamDays/blob/master/img/Verts_votes.png?raw=true" alt="Verts Votes" />
+<em>Figure 2 : Clusters of voting instances with voting behaviour (Green party)</em></p>
+
+<p><img src="https://github.com/lazareGirardin/DataJamDays/blob/master/img/UDC_votes.png?raw=true" alt="UDC Votes" />
+<em>Figure 3 : Clusters of voting instances with voting behaviour (UDC party)</em></p>
+
+<p>We now highlight conflicting behaviours, colouring in red instances in which a pair of
+parties has voted oppositely (again, only one conflicting vote is sufficient to
+tag the vote as such) and in black instances in which parties have voted unanimously.</p>
+
+<p><img src="https://github.com/lazareGirardin/DataJamDays/blob/master/img/UDC_vs_Verts_votes.png?raw=true" alt="UDC vs Verts" />
+<em>Figure 4 : Clusters of voting instances highlighting conflicting voting patterns (Green vs UDC)</em></p>
+
+<p>There are many conflicting cases between the Green party and the UDC party, as can be expected
+from dramatically different political lines.</p>
+
+<p><img src="https://github.com/lazareGirardin/DataJamDays/blob/master/img/PS_vs_Verts_votes.png?raw=true" alt="PS vs Verts" />
+<em>Figure 5 : Clusters of voting instances highlighting conflicting voting patterns (Green vs PS)</em></p>
+
+<p>PS and Green party are much closer ideologically : they often vote the same thing.
+Nevertheless we notice a cluster of diverging opinions, which can be identified in
+a more detailed analysis.</p>
+
+<h2 id="future-work">Future work</h2>
+
+<p>There are many other projects that can be attempted with this data. Some ideas
+for exploration include :</p>
+
+<ul>
+  <li>Predicting the voting behaviour of politicians</li>
+  <li>Use topic extraction to get insight about the content of the issues
+    <ul>
+      <li>Which are the most divisive issues ?</li>
+      <li>What issues are most representative of a party ?</li>
+      <li>What are the most important / the most engaging issues being discussed ?</li>
+    </ul>
+  </li>
+  <li>Study the temporal evolution of issues, voting patterns, divisions in the political spectrum …</li>
+  <li>More fine grained differentiation of the difference in voting pattern</li>
+</ul>
+
+<p><em>If you feel like attempting these or know of projects that have done this in the
+past, feel free to contact us !</em></p>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="https://github.com/lazareGirardin/DataJamDays">Github</a></li>
+  <li><a href="http://ws-old.parlament.ch/">Data source</a></li>
+  <li><a href="https://github.com/lazareGirardin/DataJamDays/blob/master/parlement_votes_5pages.pkl">Data set (<code class="highlighter-rouge">.pkl</code>)*</a></li>
+</ul>
+
+<p>* You can read this format from <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_pickle.html">within the notebook</a></p>
+
+<h2 id="repository-structure">Repository Structure</h2>
+
+<ul>
+  <li><code class="highlighter-rouge">data</code> : contains the dataset used in this project.</li>
+  <li><code class="highlighter-rouge">img</code> : figures generated to illustrate our work.</li>
+  <li><code class="highlighter-rouge">lib</code> : code utilities used in the project.</li>
+  <li><code class="highlighter-rouge">notebook</code> : IPython Notebook used to run the exploration.</li>
+</ul>
+
+<p>Before running the project, you must install the requirements :</p>
+
+<p><code class="highlighter-rouge">sudo pip install -r requirements.txt</code></p>
+
+<p>You can then start up a Jupyter Notebook and explore the data in the
+provided notebooks :</p>
+
+<p><code class="highlighter-rouge">jupyter notebook</code></p>
+
+<h2 id="license">License</h2>
+
+<p>This work is distributed with a <a href="https://www.gnu.org/licenses/gpl.html">GPLv3 License</a>.</p>
+
+<hr />
+
+<p>This work was done by</p>
+
+<ul>
+  <li>Dylan Bourgeois (<a href="https://twitter.com/dtsbourg">@dtsbourg</a>)</li>
+  <li>Lazare Girardin (@lazareGirardin)</li>
+  <li>Louis Duvigneau (@loduv)</li>
+</ul>
+
+          </div>
+
+          <div class="article-share">
+            
+            
+            <a href="https://twitter.com/home?status=Recommender+Systems+to+extract+voting+patterns+in+the+Swiss+parliament - https://dtsbourg.github.io/thoughts/posts/data-jam-days by @dtsbourg" title="Share on Twitter" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6 -18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6 0.8 15 2.5 22.1 -80.5-4-151.9-42.6-199.6-101.3 -8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7C67 210.7 52 206.3 39 199c0 0.4 0 0.8 0 1.2 0 47 33.4 86.1 77.7 95 -8.1 2.2-16.7 3.4-25.5 3.4 -6.2 0-12.3-0.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3 -33.1 26-74.9 41.5-120.3 41.5 -7.8 0-15.5-0.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-0.1-8.4-0.3-12.5C462.6 146 479 129 492 109.5z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://dtsbourg.github.io/thoughts/posts/data-jam-days" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M288 192v-38.1c0-17.2 3.8-25.9 30.5-25.9H352V64h-55.9c-68.5 0-91.1 31.4-91.1 85.3V192h-45v64h45v192h83V256h56.4l7.6-64H288z"/></svg>
+            </a>
+            <a href="https://plus.google.com/share?url=https://dtsbourg.github.io/thoughts/posts/data-jam-days" title="Share on Google+" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 128 128"><path d="M40.7 55.9v16.1c0 0 15.6 0 22 0C59.2 82.5 53.8 88.2 40.7 88.2c-13.3 0-23.7-10.8-23.7-24.2s10.4-24.2 23.7-24.2c7.1 0 11.6 2.5 15.8 5.9 3.3-3.3 3.1-3.8 11.6-11.9 -7.2-6.6-16.8-10.6-27.4-10.6C18.2 23.3 0 41.5 0 64c0 22.5 18.2 40.7 40.7 40.7 33.6 0 41.8-29.3 39-48.8H40.7zM113.9 56.7V42.6h-10.1v14.1H89.4v10.1h14.5v14.5h10.1V66.8H128V56.7H113.9z"/></svg>
+            </a>
+            <a href="http://news.ycombinator.com/submitlink?url=https://dtsbourg.github.io/thoughts/posts/data-jam-days" title="Share on HN" rel="noreferrer noopener" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-label="Hacker News" role="img" viewBox="0 0 512 512"><rect width="512" height="512" fill="#ADA8A8" rx="15%"/><path fill="#fff" d="M124 91h51l81 162 81-164h51L276 293v136h-40V293z"/></svg>            
+            </a>
+          </div>
+
+          
+        </article>
+        <footer class="footer appear">
+  <p>
+    I'm
+    <a href="https://dtsbourg.github.io" title="About me">Dylan Bourgeois</a>. I study robots and their brains.
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  
+  <script>
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','UA-65856095-1','auto');ga('send','pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+
+
+<script src="/thoughts/assets/vendor.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+  <script src="/thoughts/assets/webfonts.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+
+  <script src="/thoughts/assets/scrollappear.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<script src="/thoughts/assets/application.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+</body>
+</html>

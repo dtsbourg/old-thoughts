@@ -1,20 +1,90 @@
----
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="https://www.w3.org/2005/Atom" xmlns:dc="https://purl.org/dc/elements/1.1/">
   <channel>
-    <title>{{ site.name | xml_escape }}</title>
-    <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
-    <link>{{ site.url }}</link>
-    <atom:link href="{{ page.path | absolute_url }}" rel="self" type="application/rss+xml" />
-    {% for post in site.posts limit:10 %}
+    <title>dtsbourg / Thoughts</title>
+    <description></description>
+    <link>https://dtsbourg.github.io</link>
+    <atom:link href="https://dtsbourg.github.io/thoughts/feed.xml" rel="self" type="application/rss+xml" />
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.description | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | absolute_url }}</link>
-        <guid isPermaLink="true">{{ post.url | absolute_url }}</guid>
+        <title>[NOTES] On the Naturalness of Software</title>
+        <description>by Hindle et al.</description>
+        <pubDate>Wed, 19 Sep 2018 00:00:00 -0700</pubDate>
+        <link>https://dtsbourg.github.io/thoughts/posts/naturalness-software</link>
+        <guid isPermaLink="true">https://dtsbourg.github.io/thoughts/posts/naturalness-software</guid>
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>[NOTES] Unsupervised Learning of Goal Spaces for Intrinsically Motivated Goal Exploration</title>
+        <description>by A. Péré, S. Forestier, O. Sigaud and P.-Y. Oudeyer</description>
+        <pubDate>Sun, 27 May 2018 00:00:00 -0700</pubDate>
+        <link>https://dtsbourg.github.io/thoughts/posts/unsupervised-goal-learning</link>
+        <guid isPermaLink="true">https://dtsbourg.github.io/thoughts/posts/unsupervised-goal-learning</guid>
+      </item>
+    
+      <item>
+        <title>[NOTES] Inductive Representation Learning on Large Graphs</title>
+        <description>by W. Hamilton, R. Ying, J. Leskovec</description>
+        <pubDate>Wed, 23 May 2018 00:00:00 -0700</pubDate>
+        <link>https://dtsbourg.github.io/thoughts/posts/graphsage</link>
+        <guid isPermaLink="true">https://dtsbourg.github.io/thoughts/posts/graphsage</guid>
+      </item>
+    
+      <item>
+        <title>[NOTES] Semi-Supervised Classification with Graph Convolutional Networks</title>
+        <description>by T. Kipf, M. Welling</description>
+        <pubDate>Wed, 09 May 2018 00:00:00 -0700</pubDate>
+        <link>https://dtsbourg.github.io/thoughts/posts/semi-supervised-classification-gcn</link>
+        <guid isPermaLink="true">https://dtsbourg.github.io/thoughts/posts/semi-supervised-classification-gcn</guid>
+      </item>
+    
+      <item>
+        <title>How editorial decisions can reveal a worrying lack of diversity in news coverage</title>
+        <description>Machine learning personalisation methods have the ability to bias the content of a news feed, and reinforce filter bubbles.  Can they also be used to do the opposite? .</description>
+        <pubDate>Wed, 25 Apr 2018 00:00:00 -0700</pubDate>
+        <link>https://dtsbourg.github.io/thoughts/posts/selection-bias-oped</link>
+        <guid isPermaLink="true">https://dtsbourg.github.io/thoughts/posts/selection-bias-oped</guid>
+      </item>
+    
+      <item>
+        <title>[NOTES] Self-Normalizing Neural Networks (SELU)</title>
+        <description>by G. Klambauer, T. Unterthiner, A. Mayr, and S. Hochreiter</description>
+        <pubDate>Fri, 23 Mar 2018 00:00:00 -0700</pubDate>
+        <link>https://dtsbourg.github.io/thoughts/posts/self-normalizing-neural-nets</link>
+        <guid isPermaLink="true">https://dtsbourg.github.io/thoughts/posts/self-normalizing-neural-nets</guid>
+      </item>
+    
+      <item>
+        <title>Pose Sketching for the Control of a Humanoid Robot - Part 2</title>
+        <description>The visual servoing problem.</description>
+        <pubDate>Thu, 08 Feb 2018 00:00:00 -0800</pubDate>
+        <link>https://dtsbourg.github.io/thoughts/posts/pose-sketching2</link>
+        <guid isPermaLink="true">https://dtsbourg.github.io/thoughts/posts/pose-sketching2</guid>
+      </item>
+    
+      <item>
+        <title>Pose Sketching for the Control of a Humanoid Robot - Part 1</title>
+        <description>Motivation: Controlling robots is hard.</description>
+        <pubDate>Thu, 25 Jan 2018 00:00:00 -0800</pubDate>
+        <link>https://dtsbourg.github.io/thoughts/posts/pose-sketching1</link>
+        <guid isPermaLink="true">https://dtsbourg.github.io/thoughts/posts/pose-sketching1</guid>
+      </item>
+    
+      <item>
+        <title>Recommender Systems to extract voting patterns in the Swiss parliament</title>
+        <description>Data Jam Days at EPFL (24-25 Nov. 2017)</description>
+        <pubDate>Fri, 24 Nov 2017 00:00:00 -0800</pubDate>
+        <link>https://dtsbourg.github.io/thoughts/posts/data-jam-days</link>
+        <guid isPermaLink="true">https://dtsbourg.github.io/thoughts/posts/data-jam-days</guid>
+      </item>
+    
+      <item>
+        <title>Starry Night</title>
+        <description>A primer on style transfer</description>
+        <pubDate>Tue, 20 Jun 2017 00:00:00 -0700</pubDate>
+        <link>https://dtsbourg.github.io/thoughts/posts/starry-nights</link>
+        <guid isPermaLink="true">https://dtsbourg.github.io/thoughts/posts/starry-nights</guid>
+      </item>
+    
   </channel>
 </rss>

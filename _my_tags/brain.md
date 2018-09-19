@@ -1,4 +1,0 @@
----
-slug: brain
-name: brain
----

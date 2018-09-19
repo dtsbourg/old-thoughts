@@ -1,4 +1,0 @@
----
-slug: journalism
-name: journalism
----

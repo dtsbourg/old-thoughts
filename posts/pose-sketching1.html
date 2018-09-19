@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>dtsbourg / Thoughts | Pose Sketching for the Control of a Humanoid Robot - Part 1</title>
+  <meta name="description" content="Motivation: Controlling robots is hard.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Pose Sketching for the Control of a Humanoid Robot - Part 1">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dtsbourg.github.io/thoughts/posts/pose-sketching1">
+  <meta property="og:description" content="Motivation: Controlling robots is hard.">
+  <meta property="og:site_name" content="dtsbourg / Thoughts">
+  <meta property="og:image" content="https://dtsbourg.github.io/thoughts/thoughts/assets/ico/favicon.ico">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://dtsbourg.github.io/thoughts/posts/pose-sketching1">
+  <meta name="twitter:title" content="Pose Sketching for the Control of a Humanoid Robot - Part 1">
+  <meta name="twitter:description" content="Motivation: Controlling robots is hard.">
+  <meta name="twitter:image" content="https://dtsbourg.github.io/thoughts/thoughts/assets/ico/favicon.ico">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/thoughts/assets/ico/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/thoughts/assets/ico/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/thoughts/assets/ico/favicon-16x16.png">
+  <link rel="mask-icon" href="/thoughts/assets/ico/safari-pinned-tab.svg" color="#5bbad5">
+  <link href="https://dtsbourg.github.io/thoughts/feed.xml" type="application/rss+xml" rel="alternate" title="dtsbourg / Thoughts Last 10 blog posts" />
+
+  
+
+  
+    <link rel="stylesheet" href="/thoughts/assets/light.css">
+
+  
+</head>
+
+<body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav appear">
+  <a href="/thoughts/" class="header-logo" title="dtsbourg / Thoughts">dtsbourg / Thoughts</a>
+  <ul class="header-links">
+    
+    
+      <li>
+        <a href="https://twitter.com/dtsbourg" rel="noreferrer noopener" target="_blank" title="Twitter">
+          <span class="icon icon-twitter"></span>
+        </a>
+      </li>
+    
+    
+    
+      <li>
+        <a href="https://github.com/dtsbourg" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <span class="icon icon-github"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+      <li>
+        <a href="https://www.linkedin.com/in/dylan-bourgeois-319ab294" rel="noreferrer noopener" target="_blank" title="LinkedIn">
+          <span class="icon icon-linkedin"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+      <li>
+        <a href="/thoughts/feed.xml" rel="noreferrer noopener" target="_blank" title="RSS">
+          <span class="icon icon-rss"></span>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+        <article class="article appear">
+          <header class="article-header">
+            <h1>Pose Sketching for the Control of a Humanoid Robot - Part 1</h1>
+            <p>Motivation: Controlling robots is hard.</p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                January 25, 2018
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  3 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/thoughts/tag/robot">robot</a>
+                
+                  <a href="/thoughts/tag/project">project</a>
+                
+                  <a href="/thoughts/tag/epfl">epfl</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <h2 id="introduction">Introduction</h2>
+
+<p>In this series of posts, I will be writing up about some work done in the
+context of a semester project counting for my degree from <a href="https://epfl.ch">EPFL</a>.
+This is meant more as a record than an in-depth tutorial, but don’t hesitate to
+drop me a line if you would like to see more details.
+This work was done under supervision by <a href="https://calinon.ch">Sylvain Calinon</a>,
+senior researcher in the Robot Learning &amp; Interaction Group at <a href="https://idiap.ch">Idiap Research Institute</a>
+in Martigny, Switzerland.</p>
+
+<p>The main focus of the project was to investigate new ways of controlling
+high degree of freedom robots, with an application to the Humanoid robot Baxter.</p>
+
+<p><img src="https://www.edinburgh-robotics.org/sites/default/files/baxter-robot.jpg" alt="baxter" />
+<em>Figure 1: The Baxter robot (source: edinburgh-robotics.org)</em></p>
+
+<h2 id="controlling-robots-is-hard">Controlling robots is hard</h2>
+
+<p>As robots further enter our everyday lives, increasing our interactions
+with them, we need better ways to cooperate with or command them. In
+industrial settings, where the large majority of robots live at the
+moment, the design of operational tasks and their control is yielded to a
+dedicated technician or engineer, who often needs extensive experience
+in the use of a proprietary interface corresponding to the robot in use.</p>
+
+<p>Personal or service robots, which have started to enter our homes, still
+only enjoy rudimentary control : they usually sacrifice completeness for
+simplicity as users are usually not well versed in robot control.</p>
+
+<p><img src="https://www.techtransfer.com/wp-content/uploads/image007.jpg" alt="control panel" />
+<em>Figure 2: An industrial robot control panel from techtransfer</em></p>
+
+<p>In recent years we have seen the arrival of a variety of new Augmented
+Reality platforms, such as Google’s Tango <sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup> (now ARCore <sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>) or Apple’s ARKit <sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>.
+Thanks to more powerful embedded hardware, companies
+have started to provide libraries which easily allow visual tracking,
+rendering in 3D space, and even interaction with physical planes. This
+presents an elegant framework for interacting with complex systems such
+as robots, as they take advantage of context to display information.
+They also could provide an intuitive way of manipulating robots which
+have a high number of degrees of freedom, such as the Baxter robot, in
+the space in which they operate normally, provide direct visual feedback
+rather than a collection of joysticks or buttons for every DOF.</p>
+
+<p><img src="https://photos5.appleinsider.com/gallery/22874-28279-170919-Strava-l.jpg" alt="ARKIT" />
+<em>Figure 3: ARKit in action</em></p>
+
+<h2 id="towards-an-intuitive-control-model">Towards an intuitive control model</h2>
+
+<p>One of the simplest ways of expressing complex shapes has long been to
+draw. Particularly in the case of human poses, which can be difficult to
+describe, are intuitively represented with stick figures.
+The original aim of this project was to allow a user to draw a stick
+pose on an Augmented Reality interface which would map to a robot pose.
+This would allow for intuitive control of the robot’s many DOFs by
+providing direct, contextual and visible feedback to the user
+controlling it.</p>
+
+<!-- To achieve this we started by investigating partial control of the
+robot’s joints in a Matlab simulation, developing an interactive
+simulation which allows for this type of control. This aspect will be
+detailed in Part 2 (*coming soon*). -->
+
+<p>An interesting approach to this control is to give and track commands directly
+in the image space (on the screen). This idea led to the investigation
+of the visual servoing problem, as detailed in Part 2 (<em>coming soon</em>).
+This led us to keep this method of control for a final application in
+which the user could click on the screen of an Android phone, and have
+the robot move to this selected point.</p>
+
+<p><img src="/thoughts/assets/pose-sketch/setting.png" alt="Interaction Model" />
+<em>Figure 4: Proposed interaction model</em></p>
+
+<p>This should converge towards a unified control model described in Fig. 4.
+The user, helped by feedback from an Augmented Reality overlay, can click
+on the screen to make the robot’s arm move from position 1 to 2, while having
+the freedom to move around, edit his selection, and virtually interact with the
+separate degrees of freedom of the robot.</p>
+
+<hr />
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>https://developers.google.com/tango <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>https://github.com/google-ar/arcore-android-sdk <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>https://developer.apple.com/arkit/ <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+          </div>
+
+          <div class="article-share">
+            
+            
+            <a href="https://twitter.com/home?status=Pose+Sketching+for+the+Control+of+a+Humanoid+Robot+-+Part+1 - https://dtsbourg.github.io/thoughts/posts/pose-sketching1 by @dtsbourg" title="Share on Twitter" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6 -18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6 0.8 15 2.5 22.1 -80.5-4-151.9-42.6-199.6-101.3 -8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7C67 210.7 52 206.3 39 199c0 0.4 0 0.8 0 1.2 0 47 33.4 86.1 77.7 95 -8.1 2.2-16.7 3.4-25.5 3.4 -6.2 0-12.3-0.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3 -33.1 26-74.9 41.5-120.3 41.5 -7.8 0-15.5-0.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-0.1-8.4-0.3-12.5C462.6 146 479 129 492 109.5z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://dtsbourg.github.io/thoughts/posts/pose-sketching1" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M288 192v-38.1c0-17.2 3.8-25.9 30.5-25.9H352V64h-55.9c-68.5 0-91.1 31.4-91.1 85.3V192h-45v64h45v192h83V256h56.4l7.6-64H288z"/></svg>
+            </a>
+            <a href="https://plus.google.com/share?url=https://dtsbourg.github.io/thoughts/posts/pose-sketching1" title="Share on Google+" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 128 128"><path d="M40.7 55.9v16.1c0 0 15.6 0 22 0C59.2 82.5 53.8 88.2 40.7 88.2c-13.3 0-23.7-10.8-23.7-24.2s10.4-24.2 23.7-24.2c7.1 0 11.6 2.5 15.8 5.9 3.3-3.3 3.1-3.8 11.6-11.9 -7.2-6.6-16.8-10.6-27.4-10.6C18.2 23.3 0 41.5 0 64c0 22.5 18.2 40.7 40.7 40.7 33.6 0 41.8-29.3 39-48.8H40.7zM113.9 56.7V42.6h-10.1v14.1H89.4v10.1h14.5v14.5h10.1V66.8H128V56.7H113.9z"/></svg>
+            </a>
+            <a href="http://news.ycombinator.com/submitlink?url=https://dtsbourg.github.io/thoughts/posts/pose-sketching1" title="Share on HN" rel="noreferrer noopener" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-label="Hacker News" role="img" viewBox="0 0 512 512"><rect width="512" height="512" fill="#ADA8A8" rx="15%"/><path fill="#fff" d="M124 91h51l81 162 81-164h51L276 293v136h-40V293z"/></svg>            
+            </a>
+          </div>
+
+          
+        </article>
+        <footer class="footer appear">
+  <p>
+    I'm
+    <a href="https://dtsbourg.github.io" title="About me">Dylan Bourgeois</a>. I study robots and their brains.
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  
+  <script>
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','UA-65856095-1','auto');ga('send','pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+
+
+<script src="/thoughts/assets/vendor.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+  <script src="/thoughts/assets/webfonts.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+
+  <script src="/thoughts/assets/scrollappear.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<script src="/thoughts/assets/application.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>dtsbourg / Thoughts | "Scientists Discover That the Brain Can Process Clickbait in 11 Dimensions !"</title>
+  <meta name="description" content="An example of approximative vulgarization.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="&quot;Scientists Discover That the Brain Can Process Clickbait in 11 Dimensions !&quot;">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dtsbourg.github.io/thoughts/posts/clickbait-11-dimensions">
+  <meta property="og:description" content="An example of approximative vulgarization.">
+  <meta property="og:site_name" content="dtsbourg / Thoughts">
+  <meta property="og:image" content="https://dtsbourg.github.io/thoughts/thoughts/assets/ico/favicon.ico">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://dtsbourg.github.io/thoughts/posts/clickbait-11-dimensions">
+  <meta name="twitter:title" content="&quot;Scientists Discover That the Brain Can Process Clickbait in 11 Dimensions !&quot;">
+  <meta name="twitter:description" content="An example of approximative vulgarization.">
+  <meta name="twitter:image" content="https://dtsbourg.github.io/thoughts/thoughts/assets/ico/favicon.ico">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/thoughts/assets/ico/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/thoughts/assets/ico/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/thoughts/assets/ico/favicon-16x16.png">
+  <link rel="mask-icon" href="/thoughts/assets/ico/safari-pinned-tab.svg" color="#5bbad5">
+  <link href="https://dtsbourg.github.io/thoughts/feed.xml" type="application/rss+xml" rel="alternate" title="dtsbourg / Thoughts Last 10 blog posts" />
+
+  
+
+  
+    <link rel="stylesheet" href="/thoughts/assets/light.css">
+
+  
+</head>
+
+<body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav appear">
+  <a href="/thoughts/" class="header-logo" title="dtsbourg / Thoughts">dtsbourg / Thoughts</a>
+  <ul class="header-links">
+    
+    
+      <li>
+        <a href="https://twitter.com/dtsbourg" rel="noreferrer noopener" target="_blank" title="Twitter">
+          <span class="icon icon-twitter"></span>
+        </a>
+      </li>
+    
+    
+    
+      <li>
+        <a href="https://github.com/dtsbourg" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <span class="icon icon-github"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+      <li>
+        <a href="https://www.linkedin.com/in/dylan-bourgeois-319ab294" rel="noreferrer noopener" target="_blank" title="LinkedIn">
+          <span class="icon icon-linkedin"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+      <li>
+        <a href="/thoughts/feed.xml" rel="noreferrer noopener" target="_blank" title="RSS">
+          <span class="icon icon-rss"></span>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+        <article class="article appear">
+          <header class="article-header">
+            <h1>"Scientists Discover That the Brain Can Process Clickbait in 11 Dimensions !"</h1>
+            <p>An example of approximative vulgarization.</p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                June 1, 2017
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  3 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/thoughts/tag/brain">brain</a>
+                
+                  <a href="/thoughts/tag/neuroscience">neuroscience</a>
+                
+                  <a href="/thoughts/tag/epfl">epfl</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <p>So a few days ago, I was scrolling Facebook and saw an article by a popular scientific vulgarization page, titled Scientists Discover That Our Brains Can Process the World in 11 Dimensions <strong>[3]</strong>. Obviously, this sounded a bit clickbaity, but I was revising for a computational neuroscience class and the paper they mentioned was written at my University, EPFL (in Lausanne, Switzerland). So what better to do than to actually read the paper (which apparently the author did not do) ?</p>
+
+<p><em><strong>tldr;</strong> The article is really bad and misleading, the brain does not encode 11 dimensions. What the paper is about is the ability to find the depth and distribution of millions of subnetworks of neurons within the brain.</em></p>
+
+<p>The article starts off with an impressive claim :</p>
+
+<blockquote>
+  <p>“What they’ve discovered is that the brain is full of multi-dimensional geometrical structures operating in as many as 11 dimensions.”.</p>
+</blockquote>
+
+<p>This idea of “dimensions” are geometrical dimensions is replayed throughout the article. However, right in the introduction of the paper <strong>[2]</strong>, the authors explain what they really mean by “dimensions” :</p>
+
+<blockquote>
+  <p>Networks are often analyzed in terms of groups of nodes that are all-to-all connected, known as cliques. The number of neurons in a clique determines its size, or more formally, its dimension.</p>
+</blockquote>
+
+<p>Evidently, these do not relate or encode some set of hidden geometrical dimensions that the brain is able to process and that we are not able to perceive.</p>
+
+<p><img src="https://www.frontiersin.org/files/Articles/266051/fncom-11-00048-HTML-r3/image_m/fncom-11-00048-g001.jpg" alt="A clique as defined by the paper" />
+<em><strong>Figure 1 :</strong> How to find a clique of neurons as shown in the relevant paper [2]</em></p>
+
+<p>So now onto what the paper actually talks about … We know that in the brain, neurons connect together and send each other impulses (spikes) based on stimuli or general network activity (this can be caused by trying to recall a memory, recognizing a visual stimulus, processing logic, etc …). This connection behavior can be modeled as a graph : each neuron is a node, who can be connected to an arbitrary number of other nodes. Information is transmitted through this graph to accomplish any number of tasks mentioned earlier.</p>
+
+<p>What Henry Markram’s team was able to do is use topological arguments to find the depth and distribution of millions of these graphs in the brain. This is quite impressive because it is very difficult to isolate logical groups of neurons within this dense network. Yet using this mathematical framework on the graphs they can achieve this isolation mathematically rather than physiologically. They are also able to model gaps, i.e. groups of neurons that don’t communicate together, hence revealing the larger structure as well ! They can even compute their depth, which is thought to be an important characteristic for their ability to encode more abstract information : the deeper the more abstract features they can represent, similarly to Artificial Neural Networks (ANN) <strong>[1, 4, 5]</strong>.</p>
+
+<p><img src="https://i.stack.imgur.com/Hl2H6.png" alt="CNN features" />
+<em><strong>Figure 2 :</strong> ANNs abstract away the presented information into common features (you can see this in the bottom layer, which are simply lines)</em></p>
+
+<p>Once again we had here an example of shaky scientific vulgarization. Though it is extremely important that scientific research is communicated to the masses, it is important to do so with scientific rigor and method: don’t interpret what you don’t fully understand, don’t exaggerate facts and state the hypotheses within which you make these claims.</p>
+
+<p>It is crucial that people be interested in scientific advances, but it is just as important that they are not mislead. This is especially true nowadays, where myths about many domains (from AI to climate change) are widespread and could do with a little measure and a sprinkle of extra facts …</p>
+
+<hr />
+<p><br />
+<strong>Disclaimer</strong> <em>I’m not claiming to be an expert on the subject, just a student, and I only want to express my frustration when I see approximate renditions of cool scientific advancements. Nevertheless I’m happy to answer your questions about neuroscience to the best of my abilities or spark a discussion about how science is communicated to the public. Do you have examples of good (or bad) scientific communications ? Feel free to share them with me on <a href="twitter.com/dtsbourg">twitter</a></em></p>
+
+<hr />
+
+<h3 id="sources">Sources</h3>
+
+<ul>
+  <li>[1] <a href="https://blog.keras.io/how-convolutional-neural-networks-see-the-world.html">https://blog.keras.io/how-convolutional-neural-networks-see-the-world.html</a></li>
+  <li>[2] <a href="http://journal.frontiersin.org/article/10.3389/fncom.2017.00048/full">http://journal.frontiersin.org/article/10.3389/fncom.2017.00048/full</a></li>
+  <li>[3] <a href="https://futurism.com/scientists-discover-that-our-brains-can-process-the-world-in-11-dimensions/">https://futurism.com/scientists-discover-that-our-brains-can-process-the-world-in-11-dimensions/</a></li>
+  <li>[4] <a href="http://kvfrans.com/visualizing-features-from-a-convolutional-neural-network/">http://kvfrans.com/visualizing-features-from-a-convolutional-neural-network/</a></li>
+  <li>[5] <a href="https://cs231n.github.io/understanding-cnn/">https://cs231n.github.io/understanding-cnn/</a></li>
+</ul>
+
+<hr />
+<p><br /></p>
+
+          </div>
+
+          <div class="article-share">
+            
+            
+            <a href="https://twitter.com/home?status=%22Scientists+Discover+That+the+Brain+Can+Process+Clickbait+in+11+Dimensions+%21%22 - https://dtsbourg.github.io/thoughts/posts/clickbait-11-dimensions by @dtsbourg" title="Share on Twitter" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6 -18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6 0.8 15 2.5 22.1 -80.5-4-151.9-42.6-199.6-101.3 -8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7C67 210.7 52 206.3 39 199c0 0.4 0 0.8 0 1.2 0 47 33.4 86.1 77.7 95 -8.1 2.2-16.7 3.4-25.5 3.4 -6.2 0-12.3-0.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3 -33.1 26-74.9 41.5-120.3 41.5 -7.8 0-15.5-0.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-0.1-8.4-0.3-12.5C462.6 146 479 129 492 109.5z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://dtsbourg.github.io/thoughts/posts/clickbait-11-dimensions" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M288 192v-38.1c0-17.2 3.8-25.9 30.5-25.9H352V64h-55.9c-68.5 0-91.1 31.4-91.1 85.3V192h-45v64h45v192h83V256h56.4l7.6-64H288z"/></svg>
+            </a>
+            <a href="https://plus.google.com/share?url=https://dtsbourg.github.io/thoughts/posts/clickbait-11-dimensions" title="Share on Google+" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 128 128"><path d="M40.7 55.9v16.1c0 0 15.6 0 22 0C59.2 82.5 53.8 88.2 40.7 88.2c-13.3 0-23.7-10.8-23.7-24.2s10.4-24.2 23.7-24.2c7.1 0 11.6 2.5 15.8 5.9 3.3-3.3 3.1-3.8 11.6-11.9 -7.2-6.6-16.8-10.6-27.4-10.6C18.2 23.3 0 41.5 0 64c0 22.5 18.2 40.7 40.7 40.7 33.6 0 41.8-29.3 39-48.8H40.7zM113.9 56.7V42.6h-10.1v14.1H89.4v10.1h14.5v14.5h10.1V66.8H128V56.7H113.9z"/></svg>
+            </a>
+            <a href="http://news.ycombinator.com/submitlink?url=https://dtsbourg.github.io/thoughts/posts/clickbait-11-dimensions" title="Share on HN" rel="noreferrer noopener" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-label="Hacker News" role="img" viewBox="0 0 512 512"><rect width="512" height="512" fill="#ADA8A8" rx="15%"/><path fill="#fff" d="M124 91h51l81 162 81-164h51L276 293v136h-40V293z"/></svg>            
+            </a>
+          </div>
+
+          
+        </article>
+        <footer class="footer appear">
+  <p>
+    I'm
+    <a href="https://dtsbourg.github.io" title="About me">Dylan Bourgeois</a>. I study robots and their brains.
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  
+  <script>
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','UA-65856095-1','auto');ga('send','pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+
+
+<script src="/thoughts/assets/vendor.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+  <script src="/thoughts/assets/webfonts.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+
+  <script src="/thoughts/assets/scrollappear.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<script src="/thoughts/assets/application.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+</body>
+</html>

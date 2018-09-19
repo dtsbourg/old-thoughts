@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>dtsbourg / Thoughts | [NOTES] Inductive Representation Learning on Large Graphs</title>
+  <meta name="description" content="by W. Hamilton, R. Ying, J. Leskovec">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="[NOTES] Inductive Representation Learning on Large Graphs">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dtsbourg.github.io/thoughts/posts/graphsage">
+  <meta property="og:description" content="by W. Hamilton, R. Ying, J. Leskovec">
+  <meta property="og:site_name" content="dtsbourg / Thoughts">
+  <meta property="og:image" content="https://dtsbourg.github.io/thoughts/thoughts/assets/ico/favicon.ico">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://dtsbourg.github.io/thoughts/posts/graphsage">
+  <meta name="twitter:title" content="[NOTES] Inductive Representation Learning on Large Graphs">
+  <meta name="twitter:description" content="by W. Hamilton, R. Ying, J. Leskovec">
+  <meta name="twitter:image" content="https://dtsbourg.github.io/thoughts/thoughts/assets/ico/favicon.ico">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/thoughts/assets/ico/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/thoughts/assets/ico/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/thoughts/assets/ico/favicon-16x16.png">
+  <link rel="mask-icon" href="/thoughts/assets/ico/safari-pinned-tab.svg" color="#5bbad5">
+  <link href="https://dtsbourg.github.io/thoughts/feed.xml" type="application/rss+xml" rel="alternate" title="dtsbourg / Thoughts Last 10 blog posts" />
+
+  
+
+  
+    <link rel="stylesheet" href="/thoughts/assets/light.css">
+
+  
+</head>
+
+<body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav appear">
+  <a href="/thoughts/" class="header-logo" title="dtsbourg / Thoughts">dtsbourg / Thoughts</a>
+  <ul class="header-links">
+    
+    
+      <li>
+        <a href="https://twitter.com/dtsbourg" rel="noreferrer noopener" target="_blank" title="Twitter">
+          <span class="icon icon-twitter"></span>
+        </a>
+      </li>
+    
+    
+    
+      <li>
+        <a href="https://github.com/dtsbourg" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <span class="icon icon-github"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+      <li>
+        <a href="https://www.linkedin.com/in/dylan-bourgeois-319ab294" rel="noreferrer noopener" target="_blank" title="LinkedIn">
+          <span class="icon icon-linkedin"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+      <li>
+        <a href="/thoughts/feed.xml" rel="noreferrer noopener" target="_blank" title="RSS">
+          <span class="icon icon-rss"></span>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+        <article class="article appear">
+          <header class="article-header">
+            <h1>[NOTES] Inductive Representation Learning on Large Graphs</h1>
+            <p>by W. Hamilton, R. Ying, J. Leskovec</p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                May 23, 2018
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  4 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/thoughts/tag/ml">ml</a>
+                
+                  <a href="/thoughts/tag/deeplearning">deeplearning</a>
+                
+                  <a href="/thoughts/tag/notes">notes</a>
+                
+                  <a href="/thoughts/tag/graph">graph</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <p><a href="https://arxiv.org/abs/1706.02216">ArXiv (NIPS ‘17)</a></p>
+
+<h2 id="what">What?</h2>
+
+<p><strong>GraphSAGE</strong> (SAmple and aggreGatE): A general <em>inductive</em> learning framework for node embeddings.</p>
+
+<h2 id="why">Why?</h2>
+
+<p>Most recent work (e.g. <sup id="fnref:2"><a href="#fn:2" class="footnote">1</a></sup>) has focus on the <em>transductive</em> setting, in which the graph is fixed
+so the goal is to predict label information for unlabelled (not unseen) nodes. If a new node
+was to be added, the entire embedding would need to be recomputed, making the methods costly
+for dynamic or dense graphs, as well as making it difficult to train in a mini-batch setting.</p>
+
+<h2 id="how">How?</h2>
+
+<p>Instead of learning individual embeddings for each node, GraphSAGE learns functions
+that generate the embeddings for a node, which sample and aggregate feature<br />
+and topological information from the node’s neighbourhood.</p>
+
+<p><img src="/thoughts/assets/graphsage/graphsage.png" alt="algorithm" />
+<em>Figure 1: The GraphSAGE algorithm <sup id="fnref:1"><a href="#fn:1" class="footnote">2</a></sup></em></p>
+
+<p>The weights for composing neighbouring embeddings and the parameters of the
+aggregation function are learned with a usual embedding loss, which pushes nearby nodes
+to have similar representations in the embedding space and separates distinct nodes.
+Note that the embedding <script type="math/tex">\mathbf{z}_u</script> is generated from neighborhood information rather
+than training a unique embedding for each node.</p>
+
+<p><img src="/thoughts/assets/graphsage/loss.png" alt="loss" />
+<em>Figure 2: Loss <sup id="fnref:1:1"><a href="#fn:1" class="footnote">2</a></sup></em></p>
+
+<p>The authors propose and compare three aggregator candidates. These must be symmetric:
+a permutation of the inputs should not change the result, since the “ordering” of a graph is arbitrary.</p>
+
+<ul>
+  <li>Mean Aggregator: close to GCN <sup id="fnref:2:1"><a href="#fn:2" class="footnote">1</a></sup> as a linear approximation of a localized spectral convolution</li>
+  <li>LSTM Aggregator: Larger expressive power but not inherently symmetric</li>
+  <li>Pooling Aggregator: No significant difference between max- and mean-pooling.</li>
+</ul>
+
+<h4 id="appendix-mini-batch-setting">Appendix: Mini-batch setting</h4>
+
+<p><img src="/thoughts/assets/graphsage/minibatch.png" alt="minibatch" />
+<em>Figure 3: GraphSAGE mini-batch setting <sup id="fnref:1:2"><a href="#fn:1" class="footnote">2</a></sup></em></p>
+
+<p>The required nodes are sampled first, so that the mini-batch “sets” (nodes needed to compute
+the embedding at depth <script type="math/tex">k</script>) are available in the main loop, and everything can be run in parallel.</p>
+
+<h2 id="evaluation">Evaluation</h2>
+
+<ul>
+  <li>Subject classification for academic papers (<a href="https://clarivate.libguides.com/rawdata">Web of Science citations</a>)</li>
+  <li>Community detection classification on <a href="https://pushshift.io/">Reddit posts</a></li>
+  <li>Protein function classification <strong>across graphs</strong> in <a href="https://downloads.thebiogrid.org/BioGRID">Protein-Protein Interaction</a></li>
+</ul>
+
+<p>The authors compare against a random classifier, a logistic regression classifier, DeepWalk <sup id="fnref:4"><a href="#fn:4" class="footnote">3</a></sup> as
+an feature learning method, as well as a concatenation of the node features and DeepWalk-generated embeddings.
+Several variants of GraphSAGE are also compared, with a depth of <script type="math/tex">K=2</script> and respectively <script type="math/tex">S_1=25</script>, <script type="math/tex">S_2=10</script> neighbors
+sampled at depth <script type="math/tex">k=1,2</script>.</p>
+
+<p><img src="/thoughts/assets/graphsage/experiments.png" alt="loss" /></p>
+
+<h2 id="comments">Comments</h2>
+
+<ul>
+  <li>This work uniformly samples a fixed-size set of neighbors instead of using the full neighborhood for computational footprint</li>
+  <li>The search depth also appears to show no real improvement after <script type="math/tex">K=2</script></li>
+  <li>Different aggregator function for each depth, to compose different information about the neighbours (topological, similarity, …)</li>
+  <li>Has the ability to not only generalize to unseen nodes but also to unseen graphs!</li>
+  <li>Provides a solution to the mini-batch training problem for graph-based learning (though the sub-sampling and limited depth search also helps the performance gains)</li>
+  <li>FastGCN <sup id="fnref:5"><a href="#fn:5" class="footnote">4</a></sup> has proposed some new sampling methods, and included modern learning techniques to improve results (e.g. dropout, layer normalization, …)</li>
+</ul>
+
+<h2 id="questions">Questions</h2>
+
+<ul>
+  <li>How to leverage some priors about the graph structure (e.g. if it follows a powerlaw, Poincaré embeddings <sup id="fnref:3"><a href="#fn:3" class="footnote">5</a></sup> have been shown to be an efficient embedding)?</li>
+  <li>Why is there no improvement for larger depths? Is it akin to the problems faced by deeper feed-forward nets?</li>
+  <li>Could this method be used to predict the number of neighbors a given node has? (<em>Theorem 1</em> seems to indicate that it is possible)</li>
+  <li>Several of the graph size parameters are heuristic / hardcoded (depth, neighbor sampling, graph density). Could they be learned / optimized for as hyperparameters?</li>
+  <li>Are there mechanisms to prevent re-sampling the same nodes again? (i.e. in a sparse graph the node doesn’t necessarily have <script type="math/tex">S_k</script> neighbors to sample from. Note that the authors specify that this method is designed for large graphs which <em>require</em> subsampling to be treated)</li>
+  <li>Could we use non-local operators as aggregator functions? (these non-local operators have shown promising results comparable to local operations like convolutions <sup id="fnref:7"><a href="#fn:7" class="footnote">6</a></sup> <sup id="fnref:8"><a href="#fn:8" class="footnote">7</a></sup>) This could require a much smaller neighborhood to capture the same long range dependencies.</li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+<h4 id="code">Code</h4>
+
+<ul>
+  <li><a href="https://github.com/williamleif/GraphSAGE">Tensorflow implementation</a></li>
+  <li><a href="https://github.com/williamleif/graphsage-simple">Reference PyTorch implementation</a></li>
+</ul>
+
+<h4 id="discussion">Discussion</h4>
+
+<ul>
+  <li><a href="https://mltrain.cc/wp-content/uploads/2017/10/will-hamilton.pdf">Implementation overview (slides, pdf)</a></li>
+  <li><a href="http://snap.stanford.edu/graphsage/">SNAP lab page</a></li>
+  <li><a href="http://www.ipam.ucla.edu/abstract/?tid=14555&amp;pcode=DLT2018">Jure Leskovec IPAM talk</a></li>
+  <li>Review paper <sup id="fnref:6"><a href="#fn:6" class="footnote">8</a></sup></li>
+</ul>
+
+<h2 id="references">References</h2>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:2">
+      <p><em>Semi-Supervised Classification with Graph Convolutional Networks</em>, by T. Kipf, M. Welling <a href="https://arxiv.org/abs/1609.02907">link</a> <a href="#fnref:2" class="reversefootnote">&#8617;</a> <a href="#fnref:2:1" class="reversefootnote">&#8617;<sup>2</sup></a></p>
+    </li>
+    <li id="fn:1">
+      <p><em>Inductive Representation Learning on Large Graphs</em>, by W. Hamilton, R. Ying, J. Leskovec <a href="https://arxiv.org/abs/1706.02216">link</a> <a href="#fnref:1" class="reversefootnote">&#8617;</a> <a href="#fnref:1:1" class="reversefootnote">&#8617;<sup>2</sup></a> <a href="#fnref:1:2" class="reversefootnote">&#8617;<sup>3</sup></a></p>
+    </li>
+    <li id="fn:4">
+      <p><em>DeepWalk: Online Learning of Social Representations</em>, by B. Perozzi, R. Al-Rfou, S. Skiena <a href="https://arxiv.org/abs/1403.6652">link</a> <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:5">
+      <p><em>FastGCN: Fast Learning with Graph Convolutional Networks via Importance Sampling</em>, by J. Chen, T. Ma, C. Xiao <a href="https://openreview.net/forum?id=rytstxWAW">link</a> <a href="#fnref:5" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p><em>Poincaré Embeddings for Learning Hierarchical Representations</em> by M. Nickel, D. Kiela <a href="https://arxiv.org/abs/1705.08039">link</a> <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:7">
+      <p><em>Non-local Neural Networks</em>, by X. Wang, R. Girshick, A. Gupta, K. He <a href="https://arxiv.org/pdf/1711.07971.pdf">link</a> <a href="#fnref:7" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:8">
+      <p><em>A non-local algorithm for image denoising</em>, by A. Buades, B. Coll, J.-M. Morel <a href="https://www.iro.umontreal.ca/~mignotte/IFT6150/Articles/Buades-NonLocal.pdf">link</a> <a href="#fnref:8" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:6">
+      <p><em>Representation Learning on Graphs: Methods and Applications</em>, by W. Hamilton, R. Ying, J. Leskovec by <a href="https://arxiv.org/abs/1709.05584">link</a> <a href="#fnref:6" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+          </div>
+
+          <div class="article-share">
+            
+            
+            <a href="https://twitter.com/home?status=%5BNOTES%5D+Inductive+Representation+Learning+on+Large+Graphs - https://dtsbourg.github.io/thoughts/posts/graphsage by @dtsbourg" title="Share on Twitter" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6 -18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6 0.8 15 2.5 22.1 -80.5-4-151.9-42.6-199.6-101.3 -8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7C67 210.7 52 206.3 39 199c0 0.4 0 0.8 0 1.2 0 47 33.4 86.1 77.7 95 -8.1 2.2-16.7 3.4-25.5 3.4 -6.2 0-12.3-0.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3 -33.1 26-74.9 41.5-120.3 41.5 -7.8 0-15.5-0.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-0.1-8.4-0.3-12.5C462.6 146 479 129 492 109.5z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://dtsbourg.github.io/thoughts/posts/graphsage" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M288 192v-38.1c0-17.2 3.8-25.9 30.5-25.9H352V64h-55.9c-68.5 0-91.1 31.4-91.1 85.3V192h-45v64h45v192h83V256h56.4l7.6-64H288z"/></svg>
+            </a>
+            <a href="https://plus.google.com/share?url=https://dtsbourg.github.io/thoughts/posts/graphsage" title="Share on Google+" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 128 128"><path d="M40.7 55.9v16.1c0 0 15.6 0 22 0C59.2 82.5 53.8 88.2 40.7 88.2c-13.3 0-23.7-10.8-23.7-24.2s10.4-24.2 23.7-24.2c7.1 0 11.6 2.5 15.8 5.9 3.3-3.3 3.1-3.8 11.6-11.9 -7.2-6.6-16.8-10.6-27.4-10.6C18.2 23.3 0 41.5 0 64c0 22.5 18.2 40.7 40.7 40.7 33.6 0 41.8-29.3 39-48.8H40.7zM113.9 56.7V42.6h-10.1v14.1H89.4v10.1h14.5v14.5h10.1V66.8H128V56.7H113.9z"/></svg>
+            </a>
+            <a href="http://news.ycombinator.com/submitlink?url=https://dtsbourg.github.io/thoughts/posts/graphsage" title="Share on HN" rel="noreferrer noopener" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-label="Hacker News" role="img" viewBox="0 0 512 512"><rect width="512" height="512" fill="#ADA8A8" rx="15%"/><path fill="#fff" d="M124 91h51l81 162 81-164h51L276 293v136h-40V293z"/></svg>            
+            </a>
+          </div>
+
+          
+        </article>
+        <footer class="footer appear">
+  <p>
+    I'm
+    <a href="https://dtsbourg.github.io" title="About me">Dylan Bourgeois</a>. I study robots and their brains.
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  
+  <script>
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','UA-65856095-1','auto');ga('send','pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+
+
+<script src="/thoughts/assets/vendor.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+  <script src="/thoughts/assets/webfonts.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+
+  <script src="/thoughts/assets/scrollappear.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<script src="/thoughts/assets/application.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+</body>
+</html>

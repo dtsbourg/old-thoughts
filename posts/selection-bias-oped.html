@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>dtsbourg / Thoughts | How editorial decisions can reveal a worrying lack of diversity in news coverage</title>
+  <meta name="description" content="Machine learning personalisation methods have the ability to bias the content of a news feed, and reinforce filter bubbles.  Can they also be used to do the opposite? .">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="How editorial decisions can reveal a worrying lack of diversity in news coverage">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dtsbourg.github.io/thoughts/posts/selection-bias-oped">
+  <meta property="og:description" content="Machine learning personalisation methods have the ability to bias the content of a news feed, and reinforce filter bubbles.  Can they also be used to do the opposite? .">
+  <meta property="og:site_name" content="dtsbourg / Thoughts">
+  <meta property="og:image" content="https://dtsbourg.github.io/thoughts/thoughts/assets/selbias/broadcast.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://dtsbourg.github.io/thoughts/posts/selection-bias-oped">
+  <meta name="twitter:title" content="How editorial decisions can reveal a worrying lack of diversity in news coverage">
+  <meta name="twitter:description" content="Machine learning personalisation methods have the ability to bias the content of a news feed, and reinforce filter bubbles.  Can they also be used to do the opposite? .">
+  <meta name="twitter:image" content="https://dtsbourg.github.io/thoughts/thoughts/assets/selbias/broadcast.png">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/thoughts/assets/ico/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/thoughts/assets/ico/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/thoughts/assets/ico/favicon-16x16.png">
+  <link rel="mask-icon" href="/thoughts/assets/ico/safari-pinned-tab.svg" color="#5bbad5">
+  <link href="https://dtsbourg.github.io/thoughts/feed.xml" type="application/rss+xml" rel="alternate" title="dtsbourg / Thoughts Last 10 blog posts" />
+
+  
+
+  
+    <link rel="stylesheet" href="/thoughts/assets/light.css">
+
+  
+</head>
+
+<body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav appear">
+  <a href="/thoughts/" class="header-logo" title="dtsbourg / Thoughts">dtsbourg / Thoughts</a>
+  <ul class="header-links">
+    
+    
+      <li>
+        <a href="https://twitter.com/dtsbourg" rel="noreferrer noopener" target="_blank" title="Twitter">
+          <span class="icon icon-twitter"></span>
+        </a>
+      </li>
+    
+    
+    
+      <li>
+        <a href="https://github.com/dtsbourg" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <span class="icon icon-github"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+      <li>
+        <a href="https://www.linkedin.com/in/dylan-bourgeois-319ab294" rel="noreferrer noopener" target="_blank" title="LinkedIn">
+          <span class="icon icon-linkedin"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+      <li>
+        <a href="/thoughts/feed.xml" rel="noreferrer noopener" target="_blank" title="RSS">
+          <span class="icon icon-rss"></span>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+        <article class="article appear">
+          <header class="article-header">
+            <h1>How editorial decisions can reveal a worrying lack of diversity in news coverage</h1>
+            <p>Machine learning personalisation methods have the ability to bias the content of a news feed, and reinforce filter bubbles.  Can they also be used to do the opposite? .</p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                April 25, 2018
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  9 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/thoughts/tag/journalism">journalism</a>
+                
+                  <a href="/thoughts/tag/misinformation">misinformation</a>
+                
+                  <a href="/thoughts/tag/paper">paper</a>
+                
+                  <a href="/thoughts/tag/bias">bias</a>
+                
+                  <a href="/thoughts/tag/recsys">recsys</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <h2 id="troubling-trends">Troubling Trends</h2>
+
+<p>It’s 6PM in Syracuse: the traditional ballet of good and bad news can begin.  A local teller got robbed, international tensions reach new highs.  A lucky lottery winner took home an obscene amount of money, while the EU was enacting new data protection laws.</p>
+
+<p>Like most people, we respond strongly to relatable issues, even more so when delivered by familiar and trusted voices.  In this sense, local news really is the bedrock of most people’s information stream, despite the rise of social media.  As you walk into a friend or family’s home, chances are the television will be on.  A familiar face on screen, and in the corner a familiar logo, staples of American TV journalism over the last half-century: ABC, CNN, Fox News, CBS, MSNBC …</p>
+
+<blockquote>
+  <p>“Hi, I’m [name] with [station].  Our greatest responsibility is to serve our communities.  I am extremely proud of the quality, balanced journalism that [station] produces, but I’m concerned about the troubling trend of irresponsible, one-sided news stories plaguing our country.”</p>
+</blockquote>
+
+<p>Now, this is curious.  Tuned into your local station, you listen on as the journalists proceed to recite a tirade about the importance of impartiality in journalism <sup id="fnref:2"><a href="#fn:2" class="footnote">1</a></sup>, name-dropping the most popular “fake” of the year.  Yeah, you’ve heard this before.  Even the President is tweeting furiously about it <sup id="fnref:6"><a href="#fn:6" class="footnote">2</a></sup>.</p>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The Fake News Networks, those that knowingly have a sick and biased AGENDA, are worried about the competition and quality of Sinclair Broadcast.  The “Fakers” at CNN, NBC, ABC &amp; CBS have done so much dishonest reporting that they should only be allowed to get awards for fiction!</p>&mdash; Donald J. Trump (@realDonaldTrump) <a href="https://twitter.com/realDonaldTrump/status/981117684489379840?ref_src=twsrc%5Etfw">April 3, 2018</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>As it turns out, your local station is not the only one to have run this segment.  Across the country, news anchors recite variations of this text, warning against “some members of the media [that] use their platforms to push their own personal bias and agenda to control exactly what people think”.  This message was aired, often more than once, across the country: CBS 12 in West Palm Beach, Florida, NBC 16 in Eugene, Oregon, Fox 28 in Columbus, Ohio, … <sup id="fnref:4"><a href="#fn:4" class="footnote">3</a></sup></p>
+
+<p>Why would all these local stations, apparently across affiliations, decide to coordinate a full-on attack on mainstream media? It turns out they didn’t choose to, the institution that owns their station did, and some anchors were furious about it <sup id="fnref:3"><a href="#fn:3" class="footnote">4</a></sup>.</p>
+
+<blockquote>
+  <p>“We hated the way the PSA bashed other news outlets and the way it insinuated that we were the only truthful news source — despite the rightward tilt our network has taken over the years.  Our anchors privately said they felt like corporate mouthpieces, especially when they found out no edits of the script were permitted.  Yet bosses made it clear that reading the message wasn’t a suggestion but an order from above.”</p>
+</blockquote>
+
+<p><em>Extract from an op-ed published in Vox by Sinclair Journalists <sup id="fnref:3:1"><a href="#fn:3" class="footnote">4</a></sup></em></p>
+
+<p>Many of these stations are not actually operated by their namesakes: they essentially act as franchises.  The largest local news operator in the country is called Sinclair Broadcasting Group, which owns close to 200 local stations in the United States.  This number could even be extended if the <a href="https://en.wikipedia.org/wiki/Proposed_acquisition_of_Tribune_Media_by_Sinclair_Broadcast_Group">$3.9 billion merger with Tribune Media</a> <sup id="fnref:7"><a href="#fn:7" class="footnote">5</a></sup> comes through.  It is currently under review by the FCC, under the suspicion that it would effectively create a monopoly.  While antitrust laws and broadcasting policies could block the transaction, the new administration seems keen on loosening the leash, with FCC chairman Ajit Pai already moving to <a href="https://www.brookings.edu/blog/techtank/2017/07/11/trump-fcc-deregulation-threatens-local-broadcasting/">dismiss some of these regulations</a> <sup id="fnref:8"><a href="#fn:8" class="footnote">6</a></sup>.</p>
+
+<p>Sinclair, the author of this anti-fake news manifesto, has also come under fire over the years for this very behaviour of pushing stories to its affiliates, compromising their journalistic independence.  In 2004, they <a href="http://money.cnn.com/2004/10/18/news/midcaps/sinclair_kerry/">broadcasted an anti-Kerry documentary</a> <sup id="fnref:9"><a href="#fn:9" class="footnote">7</a></sup> nationwide, ever since raising <a href="http://articles.baltimoresun.com/2004-10-12/news/0410120139_1_vietnam-war-stolen-honor-democratic-party/2">questions</a> <sup id="fnref:10"><a href="#fn:10" class="footnote">8</a></sup> about the <a href="https://www.washingtonpost.com/lifestyle/style/under-new-ownership-wjla-tv-takes-a-slight-turn-to-the-right/2014/09/16/a21ffa6e-3ac8-11e4-9c9f-ebb47272e40e_story.html?utm_term=.4e11a568dcf2">conservative slant</a> <sup id="fnref:11"><a href="#fn:11" class="footnote">9</a></sup> of <a href="https://www.nytimes.com/2017/05/03/business/dealbook/sinclair-media-expansion-fox-conservative-media.html?_r=0">their stations’ reporting</a> <sup id="fnref:12"><a href="#fn:12" class="footnote">10</a></sup>.  Recent reports have stated that there is mandatory material for Sinclair-owned stations, including pro-Trump commentary by his former aide Boris Epshteyn and a security threat segment called ‘Terrorism Alert Desk’, turned to ridicule by HBO’s John Oliver in an <a href="https://www.youtube.com/watch?v=GvtNyOzGogc">episode dedicated to the company</a><sup id="fnref:5"><a href="#fn:5" class="footnote">11</a></sup>.</p>
+
+<p>To quote the memo directly: “This is extremely dangerous to our democracy”.</p>
+
+<h2 id="finding-patterns">Finding Patterns</h2>
+
+<p>When broadcast syndications were first envisioned, they answered a very real need to reduce costs for local stations.  Pooling resources between small news organizations was the most sensible way to provide journalists with more time for local news while providing a view of the world’s events.</p>
+
+<p>Given the fractal scale at which the world’s events occur, editors must make decisions with respect to the type of information they will send downstream.  Informed by geographic considerations, editorial guidelines, thematic regards or even logistic capabilities, this filtering process is very likely to introduce an imbalance in the stories that editors choose to promote.  Some events will end up over- or under-represented, which introduces a selection bias.  When larger organizations, such as Sinclair, push information downstream to their affiliates, the decision process becomes even more visible thanks to the scale at which it skews the event space.</p>
+
+<p>An interesting way to uncover these biases is to look at the interaction between sources and events: who covered what? Without any regard for the content of what was covered, the interactions alone are useful to extract some idea of source’s preferences.  Studying this information is actually a common setting in a field of machine learning called collaborative filtering.  For example, without even knowing what your preferred genre or who your favorite actor is, it’s likely that you will want to watch a movie that people who like similar movies to yourself also liked.  The same idea can apply to news coverage: a given source’s coverage could be inferred from sources similar to itself.</p>
+
+<p>These methods have recently come under fire, with people accusing companies like Facebook of leveraging personalisation techniques to bias people’s decision making process.  However, by realising that a decision process is a preference process, the same technology can be leveraged to de-bias news channels.  This is what is proposed in our paper, <a href="https://selection-bias-www2018.github.io/">“Selection Bias in News Coverage: Learning it, Fighting it” (WWW’18)</a><sup id="fnref:1"><a href="#fn:1" class="footnote">12</a></sup>.</p>
+
+<p>Following this insight, the first bias that we identify is an obvious one: geographically related sources have a tendency to cover similar events.  This is reassuring in the sense that local news is actually doing what it was meant to do in the first place: community-centric reporting.</p>
+
+<p><img src="/thoughts/assets/selbias/geo.png" alt="Geographical" />
+<em>Figure 1: Geographical clusters in the selection space (<a href="https://selection-bias-www2018.github.io">Click here for an interactive version</a><sup id="fnref:1:1"><a href="#fn:1" class="footnote">12</a></sup>)</em></p>
+
+<p>Interestingly though, a second type of cluster emerged.  The first time we started sifting through the algorithm’s results, we figured there must be something wrong.  What does Fox 25 in Oklahoma City have to do with ABC 20 in Springfield, Illinois <sup id="fnref:4:1"><a href="#fn:4" class="footnote">3</a></sup>? After scrolling through dozens of these websites, a pattern started emerging: similar website themes, as if they were all using the same template, and at the very bottom of the page, the mention of a common “Broadcasting Group”.</p>
+
+<p><img src="/thoughts/assets/selbias/footer.png" alt="Footer" />
+<em>Figure 2: Subtle footer structure</em></p>
+
+<p>Our method did what it was intended to do: we identify and bring together sources with similar decision processes.  The clusters we identify are non-obvious, especially without access to the content, and most don’t even have the same branding since they are often franchised outlets.</p>
+
+<p><img src="/thoughts/assets/selbias/broadcast.png" alt="Footer" />
+<em>Figure 3: Broadcast syndication clusters in the selection space (<a href="https://selection-bias-www2018.github.io">Click here for an interactive version</a><sup id="fnref:1:2"><a href="#fn:1" class="footnote">12</a></sup>)</em></p>
+
+<p>While certainly not exhaustive, our method was able to detect and group local stations that were all part of larger structures, such as Sinclair Broadcasting Group, which controlled swaths of news outlets across the country.</p>
+
+<h2 id="using-similarities-to-diversify">Using Similarities to Diversify</h2>
+
+<p>Take the case of a news aggregator for example, who must select a set of sources from which to broadcast information. The simple method would be to select the sources that cover the most events, since you would assure that most events would be shown to your readers. Unfortunately we show that while the number of articles is high, the number of actual events these articles refer to is quite low. Additionally these sources are shown to be very similar in the selection space (Fig. 4, left). In other words, there is a lack of diversity in the news coverage.</p>
+
+<p>In our paper, we propose to leverage our new measure of similarity between news sources. If we were to select sources to display our users, we could use this similarity to ensure that the chosen subset is one that you would enjoy, similar to the source you are currently reading. This is the setting in which most recommendations operate, trying to batch similar things together to group consumption. In the instance of social networks or news, this leads to a <em>filter-bubble</em> or <em>echo-chamber</em> effect, where the same information is stuck in a bubble of like-minded news conveyors. Instead, we could decide to leverage this similarity to do the opposite: choose sources as different from each other as possible (Fig. 4, right). This could be a nice way for our example news aggregator to propose a diversified coverage to its audience.</p>
+
+<p><img src="/thoughts/assets/selbias/sources.png" alt="Footer" />
+<em>Figure 4: A selection of Popular sources (left) vs a selection of Diverse sources (right) in the selection space</em></p>
+
+<p>Of course, this cannot be considered a solution to “fake news”, and one should be weary of such claims of technology as the universal problem solver.  Nevertheless, the use of popular machine learning methods has yielded interesting insights into the way streams of information are fed.  This opens the door for media accountability frameworks which use the only thing that no media outlet can hide: the content that they cover.</p>
+
+<p>It already seems inevitable that news curators take over the role of filtering the news for us, as many people already get their news through curated channels such as Facebook <sup id="fnref:13"><a href="#fn:13" class="footnote">13</a></sup> or Naver <sup id="fnref:14"><a href="#fn:14" class="footnote">14</a></sup>. This work is unfortunately just an attempt at mitigating some of the effects of these curated platforms.  News connected the world before instantaneous sharing, allowing people to share the events of their communities across the globe.  While it is unrealistic to believe that we can keep up with the immense body of information being produced across the world, we must realize the importance of a free, diverse and levelled press, and the threat the lack of these values represents to our perception of the world around us.</p>
+
+<hr />
+<p><br /></p>
+
+<h2 id="notice">Notice</h2>
+
+<p>If you are interested in our work, have questions about the study or would like to share this article, feel free to contact me at any of the channels listed above or <a href="https://dtsbourg.github.io">on my website</a>.  The paper is licensed under a CC-BY (4.0) license, as are the figures included in this article.</p>
+
+<h2 id="edits">Edits</h2>
+
+<ul>
+  <li>Monday, April 30th: <em>Added a couple paragraphs to clarify some aspects such as the need for curation and potential applications, thanks to comments from reddit (<a href="https://www.reddit.com/r/Journalism/comments/8g00qp/how_editorial_decisions_can_reveal_a_worrying/">/r/journalism</a>) and the relationship to personalisation, thanks to <a href="https://twitter.com/romainpittet">Romain Pittet</a></em></li>
+</ul>
+
+<h2 id="bibliography">Bibliography</h2>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:2">
+      <p>Sinclair memo transcript <a href="https://www.mediamatters.org/blog/2018/03/29/here-are-manipulative-ads-sinclair-forced-local-anchors-read-now-airing-across-country/219779">link</a> <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:6">
+      <p>Trump tweet <a href="https://twitter.com/realDonaldTrump/status/981117684489379840">link</a> <a href="#fnref:6" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:4">
+      <p>List of Sinclair operated stations, by affiliation <a href="https://en.wikipedia.org/wiki/List_of_stations_owned_or_operated_by_Sinclair_Broadcast_Group">link</a> <a href="#fnref:4" class="reversefootnote">&#8617;</a> <a href="#fnref:4:1" class="reversefootnote">&#8617;<sup>2</sup></a></p>
+    </li>
+    <li id="fn:3">
+      <p>“We’re journalists at a Sinclair news station. We’re pissed.”, Anonymous (published on Vox) <a href="https://www.vox.com/first-person/2018/4/5/17202336/sinclair-broadcasting-promo-deadspin">link</a> <a href="#fnref:3" class="reversefootnote">&#8617;</a> <a href="#fnref:3:1" class="reversefootnote">&#8617;<sup>2</sup></a></p>
+    </li>
+    <li id="fn:7">
+      <p>Acquisition of Tribune Media <a href="https://en.wikipedia.org/wiki/Proposed_acquisition_of_Tribune_Media_by_Sinclair_Broadcast_Group">link</a> <a href="#fnref:7" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:8">
+      <p>FCC deregulation <a href="https://www.brookings.edu/blog/techtank/2017/07/11/trump-fcc-deregulation-threatens-local-broadcasting/">link</a> <a href="#fnref:8" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:9">
+      <p>Anti-Kerry Broadcast <a href="http://money.cnn.com/2004/10/18/news/midcaps/sinclair_kerry/">link</a> <a href="#fnref:9" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:10">
+      <p>Anti-Kerry 2 <a href="http://articles.baltimoresun.com/2004-10-12/news/0410120139_1_vietnam-war-stolen-honor-democratic-party/2">link</a> <a href="#fnref:10" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:11">
+      <p>Sinclair conservative slant <a href="https://www.washingtonpost.com/lifestyle/style/under-new-ownership-wjla-tv-takes-a-slight-turn-to-the-right/2014/09/16/a21ffa6e-3ac8-11e4-9c9f-ebb47272e40e_story.html?noredirect=on&amp;utm_term=.14b9dbfdac73">link</a> <a href="#fnref:11" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:12">
+      <p>Sinclair conservative slant 2 <a href="https://www.nytimes.com/2017/05/03/business/dealbook/sinclair-media-expansion-fox-conservative-media.html?_r=0">link</a> <a href="#fnref:12" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:5">
+      <p>Sinclair Broadcast Group: Last Week Tonight with John Oliver (HBO) <a href="https://www.youtube.com/watch?v=GvtNyOzGogc">video</a> <a href="#fnref:5" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:1">
+      <p>Selection Bias in News Coverage: Learning it, Fighting it, WWW’18, D. Bourgeois, J. Rappaz, K. Aberer <a href="https://selection-bias-www2018.github.io/">link</a> <a href="#fnref:1" class="reversefootnote">&#8617;</a> <a href="#fnref:1:1" class="reversefootnote">&#8617;<sup>2</sup></a> <a href="#fnref:1:2" class="reversefootnote">&#8617;<sup>3</sup></a></p>
+    </li>
+    <li id="fn:13">
+      <p>Social media and news <a href="http://www.journalism.org/2017/09/07/news-use-across-social-media-platforms-2017/#more-americans-now-get-news-on-multiple-social-media-sites">link</a> <a href="#fnref:13" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:14">
+      <p>Naver <a href="http://www.koreatimes.co.kr/www/news/bizfocus/2012/04/334_109919.html">link</a> <a href="#fnref:14" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+          </div>
+
+          <div class="article-share">
+            
+            
+            <a href="https://twitter.com/home?status=How+editorial+decisions+can+reveal+a+worrying+lack+of+diversity+in+news+coverage - https://dtsbourg.github.io/thoughts/posts/selection-bias-oped by @dtsbourg" title="Share on Twitter" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6 -18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6 0.8 15 2.5 22.1 -80.5-4-151.9-42.6-199.6-101.3 -8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7C67 210.7 52 206.3 39 199c0 0.4 0 0.8 0 1.2 0 47 33.4 86.1 77.7 95 -8.1 2.2-16.7 3.4-25.5 3.4 -6.2 0-12.3-0.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3 -33.1 26-74.9 41.5-120.3 41.5 -7.8 0-15.5-0.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-0.1-8.4-0.3-12.5C462.6 146 479 129 492 109.5z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://dtsbourg.github.io/thoughts/posts/selection-bias-oped" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M288 192v-38.1c0-17.2 3.8-25.9 30.5-25.9H352V64h-55.9c-68.5 0-91.1 31.4-91.1 85.3V192h-45v64h45v192h83V256h56.4l7.6-64H288z"/></svg>
+            </a>
+            <a href="https://plus.google.com/share?url=https://dtsbourg.github.io/thoughts/posts/selection-bias-oped" title="Share on Google+" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 128 128"><path d="M40.7 55.9v16.1c0 0 15.6 0 22 0C59.2 82.5 53.8 88.2 40.7 88.2c-13.3 0-23.7-10.8-23.7-24.2s10.4-24.2 23.7-24.2c7.1 0 11.6 2.5 15.8 5.9 3.3-3.3 3.1-3.8 11.6-11.9 -7.2-6.6-16.8-10.6-27.4-10.6C18.2 23.3 0 41.5 0 64c0 22.5 18.2 40.7 40.7 40.7 33.6 0 41.8-29.3 39-48.8H40.7zM113.9 56.7V42.6h-10.1v14.1H89.4v10.1h14.5v14.5h10.1V66.8H128V56.7H113.9z"/></svg>
+            </a>
+            <a href="http://news.ycombinator.com/submitlink?url=https://dtsbourg.github.io/thoughts/posts/selection-bias-oped" title="Share on HN" rel="noreferrer noopener" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-label="Hacker News" role="img" viewBox="0 0 512 512"><rect width="512" height="512" fill="#ADA8A8" rx="15%"/><path fill="#fff" d="M124 91h51l81 162 81-164h51L276 293v136h-40V293z"/></svg>            
+            </a>
+          </div>
+
+          
+        </article>
+        <footer class="footer appear">
+  <p>
+    I'm
+    <a href="https://dtsbourg.github.io" title="About me">Dylan Bourgeois</a>. I study robots and their brains.
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  
+  <script>
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','UA-65856095-1','auto');ga('send','pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+
+
+<script src="/thoughts/assets/vendor.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+  <script src="/thoughts/assets/webfonts.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+
+  <script src="/thoughts/assets/scrollappear.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<script src="/thoughts/assets/application.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+</body>
+</html>

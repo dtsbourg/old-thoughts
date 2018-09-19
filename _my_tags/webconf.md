@@ -1,4 +1,0 @@
----
-slug: webconf
-name: webconf
----

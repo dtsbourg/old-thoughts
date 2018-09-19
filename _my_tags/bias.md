@@ -1,4 +1,0 @@
----
-slug: bias
-name: bias
----

@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>dtsbourg / Thoughts | [NOTES] On the Naturalness of Software</title>
+  <meta name="description" content="by Hindle et al.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="[NOTES] On the Naturalness of Software">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dtsbourg.github.io/thoughts/posts/naturalness-software">
+  <meta property="og:description" content="by Hindle et al.">
+  <meta property="og:site_name" content="dtsbourg / Thoughts">
+  <meta property="og:image" content="https://dtsbourg.github.io/thoughts/thoughts/assets/ico/favicon.ico">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://dtsbourg.github.io/thoughts/posts/naturalness-software">
+  <meta name="twitter:title" content="[NOTES] On the Naturalness of Software">
+  <meta name="twitter:description" content="by Hindle et al.">
+  <meta name="twitter:image" content="https://dtsbourg.github.io/thoughts/thoughts/assets/ico/favicon.ico">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/thoughts/assets/ico/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/thoughts/assets/ico/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/thoughts/assets/ico/favicon-16x16.png">
+  <link rel="mask-icon" href="/thoughts/assets/ico/safari-pinned-tab.svg" color="#5bbad5">
+  <link href="https://dtsbourg.github.io/thoughts/feed.xml" type="application/rss+xml" rel="alternate" title="dtsbourg / Thoughts Last 10 blog posts" />
+
+  
+
+  
+    <link rel="stylesheet" href="/thoughts/assets/light.css">
+
+  
+</head>
+
+<body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav appear">
+  <a href="/thoughts/" class="header-logo" title="dtsbourg / Thoughts">dtsbourg / Thoughts</a>
+  <ul class="header-links">
+    
+    
+      <li>
+        <a href="https://twitter.com/dtsbourg" rel="noreferrer noopener" target="_blank" title="Twitter">
+          <span class="icon icon-twitter"></span>
+        </a>
+      </li>
+    
+    
+    
+      <li>
+        <a href="https://github.com/dtsbourg" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <span class="icon icon-github"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+      <li>
+        <a href="https://www.linkedin.com/in/dylan-bourgeois-319ab294" rel="noreferrer noopener" target="_blank" title="LinkedIn">
+          <span class="icon icon-linkedin"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+      <li>
+        <a href="/thoughts/feed.xml" rel="noreferrer noopener" target="_blank" title="RSS">
+          <span class="icon icon-rss"></span>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+        <article class="article appear">
+          <header class="article-header">
+            <h1>[NOTES] On the Naturalness of Software</h1>
+            <p>by Hindle et al.</p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                September 19, 2018
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  3 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/thoughts/tag/ml">ml</a>
+                
+                  <a href="/thoughts/tag/notes">notes</a>
+                
+                  <a href="/thoughts/tag/code">code</a>
+                
+                  <a href="/thoughts/tag/NLP">NLP</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <p><a href="https://dl.acm.org/citation.cfm?id=2337322">ACM Digital Library - 2012</a></p>
+
+<h2 id="what">What?</h2>
+
+<p>Measuring the repetitiveness and predictability of source code, and comparing it to that of natural language.</p>
+
+<h2 id="why">Why?</h2>
+
+<p>Natural language is rich and complex but the majority of utterances fall in a fairly restricted and repetitive set of words. This allows the use of statistical models instead of formal language models. The assumption here is that source code follows a similar pattern, which might be accentuated by its even more rigid structure.</p>
+
+<p>As statistical language models have enabled huge success in translation, generation, search, … if the assumption of naturalness holds true the same progress could be made with source code.</p>
+
+<h2 id="how">How?</h2>
+
+<p><strong>RQ1</strong>: Do n-gram models capture regularities in software?</p>
+
+<p>Build n-gram models of large text and source-code datasets and compute the cross-entropy of code (comparing how surprising an unseen document is compared to the rest of the corpus). The authors compare English cross-entropy vs code cross-entropy and find that “<em>software is far more regular than English</em>”.</p>
+
+<p><img src="/thoughts/assets/naturalness/fig1.png" alt="CE" /></p>
+
+<p><strong>RQ2</strong>: Is the local regularity that the statistical LM captures merely language-specific or is it also project-specific?</p>
+
+<p>Evaluate cross-entropy across different software projects, finding that structure is project-specific. In other words each software group carries strong local structure but not a global pattern.</p>
+
+<p><img src="/thoughts/assets/naturalness/fig2.png" alt="CE" /></p>
+
+<p><strong>RQ3</strong>: Do n-gram models capture similarities within and differences between project domains?</p>
+
+<p>The authors compare the cross-entropies of application domains within a project, finding that local regularities do appear within application domains, and much less across. This means there is an influence of the software’s function, not just its form.</p>
+
+<p><img src="/thoughts/assets/naturalness/fig3.png" alt="CE" /></p>
+
+<h2 id="evaluation">Evaluation</h2>
+
+<ul>
+  <li>Text corpora
+    <ul>
+      <li>Brown corpus</li>
+      <li>Gutenberg Corpus</li>
+    </ul>
+  </li>
+  <li>Software corpora
+    <ul>
+      <li>10 Java projects</li>
+      <li>10 Ubuntu applications</li>
+    </ul>
+  </li>
+</ul>
+
+<p>The authors also apply their findings in the design of a code-completion extension for Eclipse, which is shown to provide improvements over the built-in engine (it is however shown to have a dependency on the length of the proposed token but does not just propose reserved keywords, demonstrating its ability to encapsulate context).</p>
+
+<h2 id="comments">Comments</h2>
+
+<ul>
+  <li>More of a comment on the <strong>usage</strong> of code than on its nature. Then again that is what enabled NLP to be so efficient: do away with theoretical models of language to focus on how it is used.</li>
+  <li>No comparison of project and domain-based cross-entropies for text.</li>
+  <li>Nicely written paper, often answering a question that arises in reading in the following section.</li>
+  <li>The regularity of software is not so surprising, but the fact that it goes beyond pure structure is interesting.</li>
+  <li>Would have liked to see a comparison of the suggestion ranks of proposed words in the code-completion setting.</li>
+  <li>More discussion about the “<em>non-language-specific</em>” tokens being proposed: are the class names, variable names? How are the predictions distributed?</li>
+  <li>Funny quote from the paper: “Every time a linguist leaves our group the performance of our speech recognition goes up” - <a href="https://en.wikipedia.org/wiki/Frederick_Jelinek">Fred Jelenik</a></li>
+</ul>
+
+<h2 id="selected-references">Selected references</h2>
+
+<p>[1] “A study of the uniqueness of source code”, Gabel and Su
+[2] “Data Mining for Software Engineering”, Tao et al.
+[3] “Evaluating a Software Word Usage Model for C++”, Malik et al.
+[4] “IDE 2.0: collective intelligence in software development”, Bruch et al.
+[5] “What’s in a Name? A Study of Identifiers”, Lawrie et al.</p>
+
+          </div>
+
+          <div class="article-share">
+            
+            
+            <a href="https://twitter.com/home?status=%5BNOTES%5D+On+the+Naturalness+of+Software - https://dtsbourg.github.io/thoughts/posts/naturalness-software by @dtsbourg" title="Share on Twitter" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6 -18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6 0.8 15 2.5 22.1 -80.5-4-151.9-42.6-199.6-101.3 -8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7C67 210.7 52 206.3 39 199c0 0.4 0 0.8 0 1.2 0 47 33.4 86.1 77.7 95 -8.1 2.2-16.7 3.4-25.5 3.4 -6.2 0-12.3-0.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3 -33.1 26-74.9 41.5-120.3 41.5 -7.8 0-15.5-0.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-0.1-8.4-0.3-12.5C462.6 146 479 129 492 109.5z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://dtsbourg.github.io/thoughts/posts/naturalness-software" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M288 192v-38.1c0-17.2 3.8-25.9 30.5-25.9H352V64h-55.9c-68.5 0-91.1 31.4-91.1 85.3V192h-45v64h45v192h83V256h56.4l7.6-64H288z"/></svg>
+            </a>
+            <a href="https://plus.google.com/share?url=https://dtsbourg.github.io/thoughts/posts/naturalness-software" title="Share on Google+" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 128 128"><path d="M40.7 55.9v16.1c0 0 15.6 0 22 0C59.2 82.5 53.8 88.2 40.7 88.2c-13.3 0-23.7-10.8-23.7-24.2s10.4-24.2 23.7-24.2c7.1 0 11.6 2.5 15.8 5.9 3.3-3.3 3.1-3.8 11.6-11.9 -7.2-6.6-16.8-10.6-27.4-10.6C18.2 23.3 0 41.5 0 64c0 22.5 18.2 40.7 40.7 40.7 33.6 0 41.8-29.3 39-48.8H40.7zM113.9 56.7V42.6h-10.1v14.1H89.4v10.1h14.5v14.5h10.1V66.8H128V56.7H113.9z"/></svg>
+            </a>
+            <a href="http://news.ycombinator.com/submitlink?url=https://dtsbourg.github.io/thoughts/posts/naturalness-software" title="Share on HN" rel="noreferrer noopener" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-label="Hacker News" role="img" viewBox="0 0 512 512"><rect width="512" height="512" fill="#ADA8A8" rx="15%"/><path fill="#fff" d="M124 91h51l81 162 81-164h51L276 293v136h-40V293z"/></svg>            
+            </a>
+          </div>
+
+          
+        </article>
+        <footer class="footer appear">
+  <p>
+    I'm
+    <a href="https://dtsbourg.github.io" title="About me">Dylan Bourgeois</a>. I study robots and their brains.
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  
+  <script>
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','UA-65856095-1','auto');ga('send','pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+
+
+<script src="/thoughts/assets/vendor.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+  <script src="/thoughts/assets/webfonts.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+
+  <script src="/thoughts/assets/scrollappear.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<script src="/thoughts/assets/application.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+</body>
+</html>
